@@ -35,7 +35,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $connection = mysqli_connect("localhost","root","","uhai_db");
+    $connection = mysqli_connect("localhost","root","","db_name");
 
     $sql = "SELECT * FROM tbl_users WHERE email = '$email' AND password = '$password'";
 
@@ -61,7 +61,7 @@
 
     elseif ($num_rows==1) 
     {//Right credentials redirect...to insertCar.php
-      header("location:insertCar.php");
+      header("location:financepage.php");
     }
 
     else{
