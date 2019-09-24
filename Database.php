@@ -27,7 +27,11 @@ if ($this->conn->connect_error) {
 	 $result = $this->conn->query($sql);
 
 		if ($result->num_rows > 0) {
-		return $result->fetch_assoc();
+          $resultToReturn = [];
+           while($row =$result->fetch_assoc()){
+           	array_push($resultToReturn, $row);
+           }
+		return $resultToReturn;
 	}
 	return 0;
 }
