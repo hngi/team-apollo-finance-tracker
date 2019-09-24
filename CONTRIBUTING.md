@@ -178,115 +178,81 @@ The anchor tag in HTML has a specific function - linking a user to another page.
 Write clean code. Make things modular. Keep external libraries to minimum to avoid making the app bloated.
 Further guidelines may be included as the project progresses.
 
-## Contributing
 
-...
+## BACKEND
+Kindly take note of the following when working on the backend.   
+
+### Creating Endpoints / Routes.
+The functions you write we'll be exposed to the frontend via specific URL endpoints. Use `route.php` to register these endpoints whenyou create a new one. See the sample below.
 
 ```php
 <?php
-//Go to route.php file to add your file e.g to add register.php 
+//Go to route.php file to add your file e.g to add dashboard.php 
 //go to route and locate the switch statement to add a case for your new addition
 //check the code below
 switch ( $url_array[$indexOfIndexPHP+1]) {
-		   /* case 'register':
-			require_once "register.php";
-			break;*/
-			case 'dashboard':
-			require_once "dashboard.php";
-			break;
-			default:
-			echo "404";
-
-	}
-    ...
-
+	case 'dashboard':
+	require_once "dashboard.php";
+	break;
+	default:
+	echo "404";
+}
 ```
-## Using the simple query helper
-# Non Selecting Operation(Insert,Delete,Drop ,etc)
-...
+
+### Using The Simple Query Helper
+To make database queries easier, **and safer**, an helper module has been created in `Database.php`. _All database operations **must** be made using this helper module._ Errors in database operations can be very costly, so *please* adhere to this rule. The module may be extended to provide more functionality.
 
 ```php
 <?php
-//require the database.php file
-//create a new object 
-//and use the query() method for non selecting sql operation
-//for selecting use the select() method 
-//remember to call the close() method in either case
-//check example below
+//Require the database.php file.
+//Create a new object...
+//...and use the query() method for non-selecting SQL operations (Insert, Delete, Drop, etc).
+//For selecting use the select() method. 
+//Remember to call the close() method in either case.
 
 require 'Database.php';
-
 $db = new Database();
-//any other query apart from select
-if($db->query("INSERT INTO users (firstname, lastname, email,password,phone,time)
-VALUES ('John3', 'Doe3', 'john@example.com','password','0906844632',1455667788);")){
+
+//Selecting from db
+$result = $db->select("SELECT * FROM users WHERE time=1455667788;");
+if ($result == 0) {
+	echo "No Records";
+}
+else {
+	var_dump($result);
+	//Returns the multi array containing array of each row.
+}
+$db->close();
+
+//Any other query apart from select
+if ( $db -> query(
+				"INSERT INTO users (firstname, lastname, email, password, phone, time)
+				VALUES ('John3', 'Doe3', 'john@example.com', 'password', '0906844632', 1455667788);"
+			)
+		) {
 	echo "Worked";
-}else{
+}
+else {
 	echo "Not Working";
 }
 $db->close();
-    ...
-
 ```
-# Selecting example
 
-...
+### Format for Returning Data
+We are using JSON to return data to the frontend. Check the example below.
 
-```php
-<?php
-//require the database.php file
-//create a new object 
-//and use the query() method for non selecting sql operation
-//for selecting use the select() method 
-//remember to call the close() method in either case
-//check example below
-
-require 'Database.php';
-
-$db = new Database();
-
-//selecting from db
-$result = $db->select("SELECT * FROM users WHERE time=1455667788;");
-if ($result ==0) {
-	echo "No Records";
-}else{
-	var_dump($result);
-	//this return the multi array containing array of each row
+```json
+{
+	"error": 0,
+	"successMessage": "User added ...",
+	"action": " register"
 }
 
-$db->close();
-    ...
-
-```
-
-# Returning Data format
-
-We are using json to returns data to frontend 
-check example below
-
-...
-
-```javascript
-{
-error:0,
-successMessage: "User added ...",
-action : " register"
-} 
 //on error
 {
-error:1,
-errorMessage:"the error message",
-action :"register"
+	"error": 1,
+	"errorMessage": "the error message",
+	"action": "register"
 }
-
-/*
-report:
--registered
--loggedIn
--passEmailSent
--accountNotExists
--incorrectLoginDetails
-*/
- ...
- ```
+```
 
