@@ -39,7 +39,6 @@
 		$surname = $_POST['surname'];
 		$password = $_POST['password'];
 		$confirm = $_POST['confirm'];
-		$role = $_POST['role'];
 
 		if ($password!=$confirm) {
 			echo "Password not matching";
@@ -51,9 +50,9 @@
 		}
 
 
-		$connection = mysqli_connect("localhost","root","","uhai_db");
+		$connection = mysqli_connect("localhost","root","","db_name");
 
-		$sql = "INSERT INTO tbl_users(email,surname,password,role)VALUES('$email','$surname','$password','$role')";
+		$sql = "INSERT INTO tbl_users(email,surname,password)VALUES('$email','$surname','$password')";
 
 
 		$response = mysqli_query($connection, $sql);
