@@ -12,7 +12,7 @@ VALUES ('John3', 'Doe3', 'john@example.com','password','0906844632',1455667788);
 }
 
 //selecting from db
-$result = $db->select("SELECT * FROM users WHERE time=1455667788;");
+$result = $db->select("SELECT * FROM users;");
 if ($result ==0) {
 	echo "No Records";
 }else{

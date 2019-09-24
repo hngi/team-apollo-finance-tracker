@@ -22,6 +22,8 @@ if (array_key_exists($indexOfIndexPHP+1, $url_array) &&  $url_array[$indexOfInde
 		   /* case 'register':
 			require_once "register.php";
 			break;*/
+			case 'login':
+			require_once "login.php";
 			case 'dashboard':
 			require_once "dashboard.php";
 			break;
