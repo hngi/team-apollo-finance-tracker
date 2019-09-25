@@ -255,4 +255,3 @@ We are using JSON to return data to the frontend. Check the example below.
 	"action": "register"
 }
 ```
-
