@@ -29,7 +29,6 @@ $sql = "CREATE TABLE users (
         `firstname` varchar(128) NOT NULL,
         `lastname` varchar(128) NOT NULL,
         `password` varchar(128) NOT NULL,
-        `phone` varchar(128) NOT NULL,
         `email` varchar(128) NOT NULL,
         `time` varchar(128) NOT NULL,
         PRIMARY KEY (id)
