@@ -44,7 +44,7 @@ exit();
 
 
 		
-		$sql = "INSERT INTO tbl_users(email,surname,password) VALUES('$email','$surname','$password')";
+		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
 
 		require_once "Database.php";
 		$db = new Database();
