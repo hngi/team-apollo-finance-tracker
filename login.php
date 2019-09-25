@@ -18,22 +18,22 @@ $users = $db->select("SELECT * FROM users WHERE email ='".$email."';");
 if ($users ==0) {
 	 $data = array(
 			    "error"=>1,
-			    "errorMessage" => "Either Email is Incorrect or Account Not Exists",
+			    "errorMessage" => "Either Email is Incorrect or An account does not exist for it yet. Please verify.",
 			    "report" =>"accountNotExists"
-				); 
+				);
 
 
 	echo json_encode($data,true);
 }else{
 	if ($users[0]['password'] == $password) {
-		
+
       echo json_encode($users[0],true);
 
 	}else{
 
 $data = array(
     "error"=>1,
-    "errorMessage" => "Incorrect Password",
+    "errorMessage" => "Incorrect Password. Please check and try again.",
     "report"=>"incorrectLoginDetails"
 	);
 
@@ -43,8 +43,3 @@ $data = array(
 }
 
 $db->close();
-
-
-
-
-

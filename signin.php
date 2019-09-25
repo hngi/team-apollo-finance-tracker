@@ -1,7 +1,7 @@
 
-<?php 
-  
-  
+<?php
+
+
   if (empty($_POST)) {
     # code...
   }
@@ -24,18 +24,18 @@
     $num_rows = mysqli_num_rows($response);
 
     if ($num_rows < 1) {
-      echo "<br> Wrong credentials, Please create account";
+      echo "<br> Wrong credentials, Please create an account.";
       exit();
     }
 
     elseif ($num_rows > 1) { //theres a double registration
 
-      echo "Error, Contact admin";
+      echo "Error, Please contact admin.";
       exit();
 
     }
 
-    elseif ($num_rows==1) 
+    elseif ($num_rows==1)
     {//Right credentials redirect...to insertCar.php
       header("location:financepage.php");
     }

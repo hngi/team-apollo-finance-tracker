@@ -20,7 +20,7 @@ Make sure you have the _origin_ remote set up.
   <pre>git remote add origin git://github.com/team-wildcards/trip.ng.git</pre>    
 You will be pushing your work to 'origin' to back it up online.       
 __*The following steps must be run periodically to keep your work up-to-date. You can run these commands as often as every hour. You want to fetch any new changes as soon as possible.*__       
-Be sure to [stash](https://dev.to/neshaz/how-to-git-stash-your-work-the-correct-way-cna) 
+Be sure to [stash](https://dev.to/neshaz/how-to-git-stash-your-work-the-correct-way-cna)
 or commit all local changes first.  
 
 1. Switch to your subteam/topic branch        
@@ -52,17 +52,17 @@ CSS is great, but it can get messy and difficult to maintain styles as the css f
 Inline styles have just about the highest specificity an so cannot be overriden from within the stylesheet. They also make debugging style conflicts more difficult. Inline styles do not lend themselves to the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
 #### Modularity
-The complexity of a stylesheet is directly proportional to the length of the file. 
+The complexity of a stylesheet is directly proportional to the length of the file.
 It is therefore necessary to break styles into smaller files. The following rules apply when creating stylesheets
 for this project.
 
 ##### A separate stylesheet for each page.
 
 ##### A separate stylesheet for each reusable component.
-An example of a reusable component is the footer section which is present on every page. This 
+An example of a reusable component is the footer section which is present on every page. This
 also includes components whose contents might change but need to appear consistently throughout the web app,
 Examples include buttons and headings. All instances these elements share the same styles.
-Styles for these sections should not be repeated in each page's stylesheet, rather a separate stylesheet should be 
+Styles for these sections should not be repeated in each page's stylesheet, rather a separate stylesheet should be
 created for such sections and added to every page that needs it using the `@import` CSS rule.
 
 #### Selectors - The BEM Methodology
@@ -107,14 +107,14 @@ And lastly, *.is-with-icon* is a state class or modifier (see next rule) which s
 Modifiers define additional styles for different states of a UI element.
 A button for example might have a disabled state when it is unclickable, perhaps because the user needs to enter
 some information before submitting a form.
-We divert a bit from the BEM recommendation here by thinking in terms of *state* rather than *modifier*. 
+We divert a bit from the BEM recommendation here by thinking in terms of *state* rather than *modifier*.
 Element states should be defined using additional CSS classes prefixed with *'is-'*
 
 For example, the element
 ```html
   <button class="login-form__button is-disabled"></button>
 ```
-should have default styles defined as 
+should have default styles defined as
 ```css
   .login-form__button {
     /*your styles here*/
@@ -127,7 +127,7 @@ Additional styles to be applied when it is disabled will then be defined as
   }
 ```
 The use of state classes in place of the BEM double dash modifier convention allows easy toggling of these
-states from JavaScript using the 
+states from JavaScript using the
 ```javascript
   HTMLElement.classList.add('is.disabled');
 ```
@@ -183,11 +183,11 @@ Further guidelines may be included as the project progresses.
 Kindly take note of the following when working on the backend.   
 
 ### Creating Endpoints / Routes.
-The functions you write we'll be exposed to the frontend via specific URL endpoints. Use `route.php` to register these endpoints whenyou create a new one. See the sample below.
+The functions you write will be exposed to the frontend via specific URL endpoints. Use `route.php` to register these endpoints when you create a new one. See the sample below.
 
 ```php
 <?php
-//Go to route.php file to add your file e.g to add dashboard.php 
+//Go to route.php file to add your file e.g to add dashboard.php
 //go to route and locate the switch statement to add a case for your new addition
 //check the code below
 switch ( $url_array[$indexOfIndexPHP+1]) {
@@ -207,7 +207,7 @@ To make database queries easier, **and safer**, an helper module has been create
 //Require the database.php file.
 //Create a new object...
 //...and use the query() method for non-selecting SQL operations (Insert, Delete, Drop, etc).
-//For selecting use the select() method. 
+//For selecting use the select() method.
 //Remember to call the close() method in either case.
 
 require 'Database.php';

@@ -1,7 +1,8 @@
 
-<?php 
-	
-	
+<?php
+
+require 'Database.php';
+$db = new Database();
 	if (empty($_POST)) {
 		# code...
 	}
@@ -14,24 +15,18 @@
 		$confirm = $_POST['confirm'];
 
 		if ($password!=$confirm) {
-			echo "Password not matching";
+			echo "Password entries do not match. Please check.";
 			exit();
 		}
 
 		if (strlen($password) < 8) {
-			echo "Your password is too short..8 characters minimum";
+			echo "Your password is too short. Please use 8 characters minimum.";
 		}
 
-
-		$connection = mysqli_connect("localhost","root","","db_name");
-
-		$sql = "INSERT INTO tbl_users(email,surname,password)VALUES('$email','$surname','$password')";
-
-
-		$response = mysqli_query($connection, $sql);
+		$response = $db->query("INSERT INTO tbl_users(email,fullname,password)VALUES('$email','$fullname','$password')");
 
 		if ($response==true) {
-			echo "Thank you..Data has been captured in database";
+			echo "Thank you. Your data has been captured in the database.";
 		}
 
 		else {
