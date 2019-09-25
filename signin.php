@@ -1,52 +1,58 @@
 
 <?php 
-  
+  session_start();
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Method: *");
+  header('Content-Type: application/json');
   
   if (empty($_POST)) {
-    # code...
+   $data = array(
+  "error" => 1,
+  "errorMessage" => "Field Cannot Be Empty",
+  "report"=> "emptyFields"
+   );
+echo json_encode($data,true);
+
   }
 
   else {
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+   
 
-    $connection = mysqli_connect("localhost","root","","db_name");
+require_once "Database.php";
+$db = new Database();
 
-    $sql = "SELECT * FROM tbl_users WHERE email = '$email' AND password = '$password'";
-
-    //above query confirms if user inputs are the ones in db
-
-    $response = mysqli_query($connection, $sql);
-
-    // response has 0 row or i row
-
-    $num_rows = mysqli_num_rows($response);
-
-    if ($num_rows < 1) {
-      echo "<br> Wrong credentials, Please create account";
-      exit();
-    }
-
-    elseif ($num_rows > 1) { //theres a double registration
-
-      echo "Error, Contact admin";
-      exit();
-
-    }
-
-    elseif ($num_rows==1) 
-    {//Right credentials redirect...to insertCar.php
-      header("location:financepage.php");
-    }
-
-    else{
-      echo "<br> Wrong Credentials. Please Create an account";
-      exit();
-    }
+//selecting from db
+$users = $db->select("SELECT * FROM users WHERE email ='".$email."';");
+if ($users ==0) {
+   $data = array(
+          "error"=>1,
+          "errorMessage" => "Either Email is Incorrect or Account Not Exists",
+          "report" =>"accountNotExists"
+        ); 
 
 
+  echo json_encode($data,true);
+}else{
+  if ($users[0]['password'] == $password) {
+       $_SESSION['userId']= $users[0]['id']
+      echo json_encode($users[0],true);
 
+  }else{
+
+$data = array(
+    "error"=>1,
+    "errorMessage" => "Incorrect Password",
+    "report"=>"incorrectLoginDetails"
+  );
+
+
+  echo json_encode($data,true);
+  }
+}
+
+$db->close();
 
 
 
