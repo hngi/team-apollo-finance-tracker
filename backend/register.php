@@ -1,76 +1,55 @@
-
 <?php 
-	
-	
-	if (empty($_POST)) {
-		 $data = array(
-  "error" => 1,
-  "errorMessage" => "Field Cannot Be Empty",
-  "report"=> "emptyFields"
-   );
-echo json_encode($data,true);
+session_start();
+error_reporting(0);
+include('Database.php');
 
-	}
+$db = new Database();
 
-	else {
-
-		$email = $_POST['email'];
-		$surname = $_POST['surname'];
-		$password = $_POST['password'];
-		$confirm = $_POST['confirm'];
-
-		if ($password!=$confirm) {
-			
-			 $data = array(
-  "error" => 1,
-  "errorMessage" => "Password not matching",
-  "report"=> "passwordMisMatch"
-   );
-echo json_encode($data,true);
-			exit();
-		}
-
-		if (strlen($password) < 8) {
-			
-
+if(isset($_POST['submit']))
+  {
+	$fullname=$_POST['fullname'];
+	$email=$_POST['email'];
+	$password= $_POST['password'];
+    $password2=$_POST['password2'];
+    
+	if($db->select ("SELECT email FROM users WHERE email='$email'")){
 				 $data = array(
   "error" => 1,
-  "errorMessage" => "Your password is too short..8 characters minimum",
+  "errorMessage" => "email already taken",
+  "report"=> "Email in use already"
+   )
+		
+	}else if(strlen($password) < 8) {
+					 $data = array(
+  "error" => 1,
+  "errorMessage" => "password must be more than 7",
   "report"=> "passwordTooShort"
    );
-echo json_encode($data,true);
-exit();
-		}
-
-
-		
-		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
-
-		require_once "Database.php";
-		$db = new Database();
-     $response= $db->query($sql);
-         $db->close();
-		if ($response==true) {
+	
+	}else if($password != $password2){
+					 $data = array(
+  "error" => 1,
+  "errorMessage" => "passwords do not match",
+  "report"=> "passwordmissmatch"
+   );
+	}
+	else{  
+	$passHash = md5($password);
+	if($db->query("INSERT INTO users (fullname, email,password)VALUES ('$fullname', '$email','$passHash');")){
 				 $data = array(
   "error" => 0,
-  "successMessage" => "Thank you..Data has been captured in database",
+  "successMessage" => "Registration sucessful",
   "report"=> "registered"
    );
-echo json_encode($data,true);
-		}
-
-		else {
-			
-						 $data = array(
+}else{
+				 $data = array(
   "error" => 1,
-  "successMessage" => "Error encountered while saving your details. Retry",
-  "report"=> "unknownError"
+  "successMessage" => "Not registered try again ",
+  "report"=> "registration unsucessful"
    );
-echo json_encode($data,true);
-		}
+}}
+	
+  
+}
 
-	}
-
-
-
- ?>
+?>
