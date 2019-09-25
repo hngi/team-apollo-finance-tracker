@@ -26,7 +26,7 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
             require_once "login.php";
         case 'dashboard':
             require_once "dashboard.php";
-            echo $dashboard->totalExpenses($id); /*Where id is user's id in database. Can be fetched and held in a session variable during login
+            echo $dashboard->totalExpenses($id); /*Where $id is user's id in database. Can be fetched and held in a session variable during login
             Expected Output:
             {
             "id":    1

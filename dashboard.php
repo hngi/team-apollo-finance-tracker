@@ -35,4 +35,3 @@ class Dashboard
 }
 $dashboard = new Dashboard;
 header('Content-Type: application/json');
-echo $dashboard->totalExpenses(1);
