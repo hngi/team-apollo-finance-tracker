@@ -1,31 +1,10 @@
 ### team-apollo-finance-tracker.
 Finance tracker app by team apollo for HNGi6 stage 3.
 
-## Contributing
+# Contributing
 
-...
-
-```php
-<?php
-//Go to route.php file to add your file e.g to add register.php 
-//go to route and locate the switch statement to add a case for your new addition
-//check the code below
-switch ( $url_array[$indexOfIndexPHP+1]) {
-		   /* case 'register':
-			require_once "register.php";
-			break;*/
-			case 'dashboard':
-			require_once "dashboard.php";
-			break;
-			default:
-			echo "404";
-
-	}
-    ...
-
-```
-## Using the simple query helper
-# Non Selecting Operation(Insert,Delete,Drop ,etc)
+# Using the simple query helper
+## Non Selecting Operation(Insert,Delete,Drop ,etc)
 ...
 
 ```php
@@ -51,7 +30,7 @@ $db->close();
     ...
 
 ```
-# Selecting example
+## Selecting example
 
 ...
 
@@ -82,7 +61,7 @@ $db->close();
 
 ```
 
-# Returning Data format
+## Returning Data format
 
 We are using json to returns data to frontend 
 check example below
