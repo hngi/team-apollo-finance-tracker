@@ -2,7 +2,7 @@
 //session starts
 session_start();
 error_reporting(0);
-include('install.php');
+include('Database.php');
 # Gets data from the form
 if(isset($_POST['submit']))
   {
