@@ -26,6 +26,7 @@ if ($conn->connect_error) {
 //create the user table
 $sql = "CREATE TABLE users (
         `id` int(11) NOT NULL AUTO_INCREMENT,
+        `fullname` varchar(128) NOT NULL,
         `password` varchar(128) NOT NULL,
         `email` varchar(128) NOT NULL,
         `time` varchar(128) NOT NULL,
