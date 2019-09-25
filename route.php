@@ -28,7 +28,9 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
             require_once "dashboard.php";
             $dashboard = new Dashboard;
            $method = $url_array[$indexOfIndexPHP + 2];
-           $dashboard->$method($url_array[$indexOfIndexPHP + 3]);
+
+           $parameter = isset($url_array[$indexOfIndexPHP + 3]) ? $url_array[$indexOfIndexPHP + 3]: NULL;
+           $dashboard->$method($parameter);
          /*modified so that /route.php/dashboard/totalExpenses/4
 
          will call the totalExpenses function and insert 4 as parameter 
