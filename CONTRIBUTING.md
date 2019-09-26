@@ -255,3 +255,22 @@ We are using JSON to return data to the frontend. Check the example below.
 	"action": "register"
 }
 ```
+### Adding Dashboard function
+ adding new function relating to dashboard can now/should be done in the dashboard.php  class as a method if  i want to commit a code that get all Expense i will declare a public method in the dashboard.php as follows:
+...
+```php
+
+   public function getAllExpense(id =NULL){//do some operation here
+   } 
+
+```
+...
+   and also if you need to get maybe an id then the parameter of your function will be the id .for example a link like this localhost/backend/route.php/dashboard/getExpense/45 will call the getExpense funtion in the class dashboard with 45 as the parameter the code will look like:
+...
+   ```php
+ public function getExpense($id){//do some operation here
+
+  getExpenseById($id);//$Id will equal to anything in the url last section incase of the above 45
+   } 
+   ```
+  ...
