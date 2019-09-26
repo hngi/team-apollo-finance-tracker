@@ -10,8 +10,8 @@
 $url_array = explode("/", $_SERVER['REQUEST_URI']);
 //am getting the link details here and i split with "/"
 
-$indexOfIndexPHP = array_search("api.php", $url_array);
-//get position of api.php in the link incase the tester test using deep folder
+$indexOfIndexPHP = array_search("route.php", $url_array);
+//get position of route.php in the link incase the tester test using deep folder
 
 //routing
 
@@ -19,21 +19,21 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
     //if url as first parameter and the parameter is not /
 
     switch ($url_array[$indexOfIndexPHP + 1]) {
-        /* case 'register':
+        case 'register':
         require_once "register.php";
-        break;*/
-        case 'login':
-            require_once "login.php";
+        break;
+        case 'signin':
+            require_once "signin.php";
         case 'dashboard':
             require_once "dashboard.php";
-            echo $dashboard->totalExpenses($id); /*Where $id is user's id in database. Can be fetched and held in a session variable during login
-            Expected Output:
-            {
-            "id":    1
-            "day":    "4000.00"
-            "month":    "4000.00"
-            "year":    "4000.00"
-            }
+            $dashboard = new Dashboard;
+           $method = $url_array[$indexOfIndexPHP + 2];
+
+           $parameter = isset($url_array[$indexOfIndexPHP + 3]) ? $url_array[$indexOfIndexPHP + 3]: NULL;
+           $dashboard->$method($parameter);
+         /*modified so that /route.php/dashboard/totalExpenses/4
+
+         will call the totalExpenses function and insert 4 as parameter 
              */
             break;
         default:
