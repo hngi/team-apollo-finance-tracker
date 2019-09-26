@@ -1,10 +1,10 @@
-
 <?php 
-  session_start();
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
     header("Access-Control-Allow-Method: *");
   header('Content-Type: application/json');
+  $email = $_POST['email'];
+  $password=  md5($_POST["password"]);
   
   if (empty($_POST)) {
    $data = array(
@@ -14,12 +14,7 @@
    );
 echo json_encode($data,true);
 
-  }
-
-  else {
-
-   
-
+  }else {
 require_once "Database.php";
 $db = new Database();
 
@@ -36,8 +31,8 @@ if ($users ==0) {
   echo json_encode($data,true);
 }else{
   if ($users[0]['password'] == $password) {
+    session_start();
        $_SESSION['userId']= $users[0]['id'];
-
        $data = array(
     "error"=>0,
     "successMessage" => "Login Successfull",
@@ -46,16 +41,6 @@ if ($users ==0) {
   );
       echo json_encode($data,true);
     
-      echo json_encode($users[0],true);
-
-       $data = array(
-    "error"=>0,
-    "successMessage" => "Login Successfull",
-    "user" =>$users[0],
-    "report"=>"loggedIn"
-  );
-      echo json_encode($data,true);
-
   }else{
 
 $data = array(

@@ -1,6 +1,9 @@
-
 <?php 
-	
+	header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Method: *");
+    header('Content-Type: application/json');
+ 
 	
 	if (empty($_POST)) {
 		 $data = array(
@@ -15,9 +18,9 @@ echo json_encode($data,true);
 	else {
 
 		$email = $_POST['email'];
-		$surname = $_POST['surname'];
-		$password = $_POST['password'];
-		$confirm = $_POST['confirm'];
+		$fullname = $_POST['fullname'];
+		$password = md5($_POST['password']);
+		$confirm = md5($_POST['confirm']);
 
 		if ($password!=$confirm) {
 			
@@ -44,7 +47,7 @@ exit();
 
 
 		
-		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
+		$sql = "INSERT INTO users(email,fullname,password) VALUES('$email','$fullname','$password')";
 
 		require_once "Database.php";
 		$db = new Database();

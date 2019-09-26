@@ -37,5 +37,13 @@ session_destroy();
   echo json_encode($data,true);
    }
   
+  }else{
+
+     $data = array(
+  "error" => 1,
+  "errorMessage" => "Fields Cannot Be Empty",
+  "report"=> "emptyFields"
+   );
+echo json_encode($data,true);
   }
   ?>
