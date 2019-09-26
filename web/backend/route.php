@@ -25,6 +25,9 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
         case 'signin':
             require_once "signin.php";
             break;
+        case 'forgot-password':
+            require_once "forgot-password.php";
+            break;
         case 'dashboard':
             require_once "dashboard.php";
             $dashboard = new Dashboard();

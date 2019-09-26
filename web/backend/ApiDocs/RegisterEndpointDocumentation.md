@@ -8,7 +8,7 @@ gotten from successMessage
 
 ## link_to_route/route.php/register POST Request
 <br>
-#### POST VARIABLE : email,password
+#### POST VARIABLE : fullname,confirm,email,password
 
 ###### Onsuccessfull registration
 
@@ -16,9 +16,8 @@ gotten from successMessage
 ```json
 {
   "error": 0,
-  "successMessage": "Login Successfull",
-  "user" : {},
-  "report": "accountNotExists"
+  "successMessage": "Thank you..Data has been captured in database",
+  "report": "registered"
 }
 ```
 ...
@@ -35,27 +34,41 @@ gotten from successMessage
 ```
 ...
 
-###### Incorrect Details(Either Email or Password)
+###### UNknown Error /DB error
 
 ...
 ```json
 {
   "error": 1,
-  "errorMessage": "Either Email is Incorrect or Account Not Exists",
-  "report": "accountNotExists"
+  "errorMessage": "Error encountered while saving your details. Retry",
+  "report": "unknownError"
 }
 ```
 ...
 
 
-###### Incorrect Password
+###### Password MisMatch
 
 ...
 ```json
 {
   "error": 1,
-  "errorMessage": "Incorrect Password",
-  "report": "incorrectLoginDetails"
+  "errorMessage": "Password not matching",
+  "report": "passwordMisMatch"
+}
+```
+...
+
+
+
+###### Password Too short
+
+...
+```json
+{
+  "error": 1,
+  "errorMessage": "Your password is too short..8 characters minimum",
+  "report": "passwordTooShort"
 }
 ```
 ...
