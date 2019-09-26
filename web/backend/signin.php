@@ -29,8 +29,8 @@ if ($users ==0) {
   echo json_encode($data,true);
 }else{
   if ($users[0]['password'] == $password) {
+    session_start();
        $_SESSION['userId']= $users[0]['id'];
-
        $data = array(
     "error"=>0,
     "successMessage" => "Login Successfull",
