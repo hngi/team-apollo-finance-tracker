@@ -1,6 +1,9 @@
-
 <?php 
-	
+	header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Method: *");
+    header('Content-Type: application/json');
+ 
 	
 	if (empty($_POST)) {
 		 $data = array(
