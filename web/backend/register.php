@@ -19,8 +19,8 @@ echo json_encode($data,true);
 
 		$email = $_POST['email'];
 		$fullname = $_POST['fullname'];
-		$password = $_POST['password'];
-		$confirm = $_POST['confirm'];
+		$password = md5($_POST['password']);
+		$confirm = md5($_POST['confirm']);
 
 		if ($password!=$confirm) {
 			
