@@ -6,11 +6,11 @@ else if its 0 that means no error occured and operation is successfull so the su
 gotten from successMessage
 
 
-## link_to_route/route.php/signin POST Request
+## link_to_route/route.php/register POST Request
 <br>
 #### POST VARIABLE : email,password
 
-###### Onsuccessfull Authentication
+###### Onsuccessfull registration
 
 ...
 ```json

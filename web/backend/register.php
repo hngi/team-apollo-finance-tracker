@@ -18,7 +18,7 @@ echo json_encode($data,true);
 	else {
 
 		$email = $_POST['email'];
-		$surname = $_POST['surname'];
+		$fullname = $_POST['fullname'];
 		$password = $_POST['password'];
 		$confirm = $_POST['confirm'];
 
@@ -47,7 +47,7 @@ exit();
 
 
 		
-		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
+		$sql = "INSERT INTO users(email,fullname,password) VALUES('$email','$fullname','$password')";
 
 		require_once "Database.php";
 		$db = new Database();
