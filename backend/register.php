@@ -3,7 +3,13 @@
 	
 	
 	if (empty($_POST)) {
-		# code...
+		 $data = array(
+  "error" => 1,
+  "errorMessage" => "Field Cannot Be Empty",
+  "report"=> "emptyFields"
+   );
+echo json_encode($data,true);
+
 	}
 
 	else {
@@ -14,34 +20,56 @@
 		$confirm = $_POST['confirm'];
 
 		if ($password!=$confirm) {
-			echo "Password not matching";
+			
+			 $data = array(
+  "error" => 1,
+  "errorMessage" => "Password not matching",
+  "report"=> "passwordMisMatch"
+   );
+echo json_encode($data,true);
 			exit();
 		}
 
 		if (strlen($password) < 8) {
-			echo "Your password is too short..8 characters minimum";
+			
+
+				 $data = array(
+  "error" => 1,
+  "errorMessage" => "Your password is too short..8 characters minimum",
+  "report"=> "passwordTooShort"
+   );
+echo json_encode($data,true);
+exit();
 		}
 
 
-		$connection = mysqli_connect("localhost","root","","db_name");
+		
+		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
 
-		$sql = "INSERT INTO tbl_users(email,surname,password)VALUES('$email','$surname','$password')";
-
-
-		$response = mysqli_query($connection, $sql);
-
+		require_once "Database.php";
+		$db = new Database();
+     $response= $db->query($sql);
+         $db->close();
 		if ($response==true) {
-			echo "Thank you..Data has been captured in database";
+				 $data = array(
+  "error" => 0,
+  "successMessage" => "Thank you..Data has been captured in database",
+  "report"=> "registered"
+   );
+echo json_encode($data,true);
 		}
 
 		else {
-			echo "Error encountered while saving your details. Retry";
+			
+						 $data = array(
+  "error" => 1,
+  "successMessage" => "Error encountered while saving your details. Retry",
+  "report"=> "unknownError"
+   );
+echo json_encode($data,true);
 		}
 
 	}
-
-
-
 
 
 
