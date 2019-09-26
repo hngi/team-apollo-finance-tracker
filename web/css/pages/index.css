@@ -13,7 +13,7 @@ body {
 	color: white;
 	height: 60vh;
 	width: 100vw;
-	padding: 0 10vw;
+	padding: 0 10vw 10vh 10vw;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
@@ -25,19 +25,20 @@ body {
 }
 
 .page-header__pitch {
-	width: 40vw;
+	width: 35vw;
 }
 
 .page-header__action {
 	display: block;
+	margin-bottom: 20px;
 }
 
 .form {
-	padding: 30px 5%;
-	height: 50vh;
-	width: 500px;
+	padding: 30px 3%;
+	height: 67vh;
+	width: 430px;
 	align-self: flex-end;
-	margin: -30vh 200px 50px 0;
+	margin: -40vh 200px 50px 0;
 	border-radius: 25px;
 	background: white;
 	box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);

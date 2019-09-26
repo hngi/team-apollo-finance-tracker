@@ -13,10 +13,7 @@ $data = array(
     "report"=>"loggedOut"
   );
 
-
   echo json_encode($data,true);
-
-?>
 
 function log_out_user() {
     unset($_SESSION['user_id']);

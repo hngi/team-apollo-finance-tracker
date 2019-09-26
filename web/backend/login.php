@@ -7,9 +7,6 @@ session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
-
-
 require_once "Database.php";
 $db = new Database();
 
