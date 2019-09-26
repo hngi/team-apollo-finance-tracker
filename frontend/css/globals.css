@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-color: #273D64;
+	--primary-color-dark: #111C2D;
+
+	width: 100vw; 
+	overflow-x: hidden;
+	font-size: 100%;
+	font-family: 'Segoe UI', Verdana, sans-serif;
+}
+
+body {
+	width: 100vw;
+	overflow-x: hidden;
+	background-repeat: repeat;
+	color: var(--primary-color-dark);
+}
+
+h1 {
+	line-height: 1.2em;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-content: flex-end;
+	height: 40px;
+	border-radius: 10px;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: var(--primary-color-light);
+}
