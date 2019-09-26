@@ -260,7 +260,8 @@ We are using JSON to return data to the frontend. Check the example below.
 ...
 ```php
 
-   public function getAllExpense(id =NULL){//do some operation here
+   public function getAllExpense(id =NULL){
+//do some operation here
    } 
 
 ```
