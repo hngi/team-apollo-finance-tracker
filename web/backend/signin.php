@@ -12,12 +12,7 @@
    );
 echo json_encode($data,true);
 
-  }
-
-  else {
-
-   
-
+  }else {
 require_once "Database.php";
 $db = new Database();
 
@@ -44,7 +39,6 @@ if ($users ==0) {
   );
       echo json_encode($data,true);
     
-      echo json_encode($users[0],true);
 
        $data = array(
     "error"=>0,
