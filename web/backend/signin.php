@@ -37,6 +37,8 @@ if ($users ==0) {
 }else{
   if ($users[0]['password'] == $password) {
        $_SESSION['userId']= $users[0]['id'];
+    
+      echo json_encode($users[0],true);
 
        $data = array(
     "error"=>0,
