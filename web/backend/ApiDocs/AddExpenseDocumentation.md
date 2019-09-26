@@ -6,22 +6,25 @@ else if its 0 that means no error occured and operation is successfull so the su
 gotten from successMessage
 
 
-## link_to_route/route.php/dashboard/addexpense/{id} GET Request
+## link_to_route/route.php/dashboard/addexpense/{id} POST Request
 <br>
 
-###### Onsuccessfull Deletion
+#### POST VARIABLE : cost,item,details
+details can be description of the service /product
+
+###### Onsuccessfull Addition
 
 ...
 ```json
 {
   "error": 0,
-  "successMessage": "Expense Deleted Successfully",
-  "report": "expenseDeleted"
+  "successMessage": "Expense Added Successfully",
+  "report": "expenseSaved"
 }
 ```
 ...
 
-###### Empty ID
+###### Empty Post variable
 
 ...
 ```json

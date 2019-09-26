@@ -8,6 +8,7 @@ gotten from successMessage
 
 ## link_to_route/route.php/register POST Request
 <br>
+
 #### POST VARIABLE : fullname,confirm,email,password
 
 ###### Onsuccessfull registration
