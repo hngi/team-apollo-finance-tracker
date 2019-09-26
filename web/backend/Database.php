@@ -1,6 +1,6 @@
 <?php
 /**
- * @Description:this handle the database connection
+ *@Description:this handle the database connection
 and server as mini query builder
  */
 class Database
