@@ -6,11 +6,36 @@ else if its 0 that means no error occured and operation is successfull so the su
 gotten from successMessage
 
 
-## link_to_route/route.php/login POST Request
+## link_to_route/route.php/signin POST Request
 <br>
 #### POST VARIABLE : email,password
 
 ###### Onsuccessfull Authentication
+
+...
+```json
+{
+  "error": 0,
+  "successMessage": "Login Successfull",
+  "user" : {},
+  "report": "accountNotExists"
+}
+```
+...
+
+###### Empty Fields
+
+...
+```json
+{
+  "error": 1,
+  "errorMessage": "Field Cannot Be Empty",
+  "report": "emptyFields"
+}
+```
+...
+
+###### Incorrect Details(Either Email or Password)
 
 ...
 ```json
@@ -22,14 +47,15 @@ gotten from successMessage
 ```
 ...
 
-###### Incorrect Login Details
+
+###### Incorrect Password
 
 ...
 ```json
 {
   "error": 1,
-  "errorMessage": "Either Email is Incorrect or Account Not Exists",
-  "report": "accountNotExists"
+  "errorMessage": "Incorrect Password",
+  "report": "incorrectLoginDetails"
 }
 ```
 ...

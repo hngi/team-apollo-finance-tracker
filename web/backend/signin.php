@@ -39,15 +39,6 @@ if ($users ==0) {
   );
       echo json_encode($data,true);
     
-
-       $data = array(
-    "error"=>0,
-    "successMessage" => "Login Successfull",
-    "user" =>$users[0],
-    "report"=>"loggedIn"
-  );
-      echo json_encode($data,true);
-
   }else{
 
 $data = array(
