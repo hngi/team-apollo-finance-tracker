@@ -104,5 +104,64 @@ $data = array(
 
        }
    }
+
+ public function deleteExpense($id=NULL)
+   {
+       if (isset($_SESSION['userId'])) {
+    
+if ($id == NULL){
+   
+
+$sql= "DELETE FROM expenses WHERE id=".$id.";";
+
+       if($this->db->query($sql))
+       {
+        $data = array(
+              "error"=>0,
+              "errorMessage" => "Expense Deleted Successfully",
+              "report" =>"expenseDeleted"
+            ); 
+
+
+        echo json_encode($data,true);
+
+       }else{
+$data = array(
+          "error"=>1,
+          "errorMessage" => "Unknown Database Error",
+          "report" =>"unknownError"
+        ); 
+
+
+  echo json_encode($data,true);
+
+       }
+   }else{
+$data = array(
+          "error"=>1,
+          "errorMessage" => "No Data Received by the backend",
+          "report" =>"noDataReceived"
+        ); 
+
+
+  echo json_encode($data,true);
+
+   }
+
+       }else{
+
+$data = array(
+          "error"=>1,
+          "errorMessage" => "You are not Logged in",
+          "report" =>"accountLoggedOut"
+        ); 
+
+
+  echo json_encode($data,true);
+
+       }
+   }
+
+
 }
 
