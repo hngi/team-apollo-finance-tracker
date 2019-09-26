@@ -37,9 +37,8 @@ if ($users ==0) {
 }else{
   if ($users[0]['password'] == $password) {
        $_SESSION['userId']= $users[0]['id'];
-<<<<<<< HEAD:signin.php
+    
       echo json_encode($users[0],true);
-=======
 
        $data = array(
     "error"=>0,
@@ -48,7 +47,6 @@ if ($users ==0) {
     "report"=>"loggedIn"
   );
       echo json_encode($data,true);
->>>>>>> backend:backend/signin.php
 
   }else{
 
