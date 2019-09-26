@@ -10,14 +10,14 @@ gotten from successMessage
 <br>
 #### POST VARIABLE : submit,email
 
-###### Onsuccessfull ForgetPassword
+###### Onsuccessfull ResetPassword
 
 ...
 ```json
 {
   "error": 0,
-  "successMessage": "Email is Correct",
-  "report": "correctEmail"
+  "successMessage": "Password successfully changed",
+  "report": "passwordChanged"
 }
 ```
 ...
@@ -34,14 +34,16 @@ gotten from successMessage
 ```
 ...
 
-###### Incorrect Details(Either Email or Password)
+...
+
+###### UNknown Error /DB error
 
 ...
 ```json
 {
   "error": 1,
-  "errorMessage": "Invalid Details ,Please Try Again",
-  "report": "invalidDetails"
+  "errorMessage": "Error encountered while saving your details. Retry",
+  "report": "unknownError"
 }
 ```
 ...

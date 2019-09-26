@@ -28,6 +28,9 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
         case 'forgot-password':
             require_once "forgot-password.php";
             break;
+        case 'reset-password':
+            require_once "reset-password.php";
+            break;
         case 'logout':
             require_once "logout.php";
             break;

@@ -3,6 +3,8 @@
     header("Access-Control-Allow-Headers: *");
     header("Access-Control-Allow-Method: *");
   header('Content-Type: application/json');
+  $email = $_POST['email'];
+  $password=  md5($_POST["password"]);
   
   if (empty($_POST)) {
    $data = array(
