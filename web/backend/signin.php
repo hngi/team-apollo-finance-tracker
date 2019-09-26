@@ -37,6 +37,17 @@ if ($users ==0) {
 }else{
   if ($users[0]['password'] == $password) {
        $_SESSION['userId']= $users[0]['id'];
+
+       $data = array(
+    "error"=>0,
+    "successMessage" => "Login Successfull",
+    "user" =>$users[0],
+    "report"=>"loggedIn"
+  );
+      echo json_encode($data,true);
+    
+      echo json_encode($users[0],true);
+
        $data = array(
     "error"=>0,
     "successMessage" => "Login Successfull",
