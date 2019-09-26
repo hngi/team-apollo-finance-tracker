@@ -36,7 +36,7 @@ if ($users ==0) {
   echo json_encode($data,true);
 }else{
   if ($users[0]['password'] == $password) {
-       $_SESSION['userId']= $users[0]['id']
+       $_SESSION['userId']= $users[0]['id'];
       echo json_encode($users[0],true);
 
   }else{
