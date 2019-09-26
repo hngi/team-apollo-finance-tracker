@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: #555;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* overflow: hidden; */
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*section {
+    overflow: auto;
+    padding-bottom: 100px;
+
+}*/
+
+.navbar {
+    background: #fff;
+    height: 100px;
+}
+
+.navbar .team-logo {
+    padding: 10px 0 0 20px;
+}
+
+.team-logo {
+    text-transform: uppercase;
+}
+
+.dashboard {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.dashboard-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-nav ul {
+    display: flex;
+    line-height: 20px;
+}
+
+.navbar-nav ul li{
+    margin: 0 40px;
+}
+
+.dashboard-nav .dashboard {
+    position: relative;
+}
+
+.dashboard-nav .period {
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 42px;
+}
+
+.sub-navbar {
+    display: none;
+}
+
+.navbar ul li:hover .sub-navbar {
+    display: block;
+    position: absolute;
+    background: #fff;
+}
+
+.navbar ul li:hover .sub-navbar ul {
+    display: block;
+    margin: 10px;
+}
+
+.navbar ul li:hover .sub-navbar ul li {
+    width: 150px;
+    padding: 10px;
+    text-align: left;
+}      
+
+.navbar ul li:hover .sub-navbar ul li:hover {
+    background-color: #eee;
+}
+
+ .table{
+    display: block;
+    float: left;
+    width: 60%;     
+}
+
+ .smiley {
+    display: block;
+    float: right;
+    width: 40%;
+    color: #fff;
+}
+
+.smiley > p {
+    font-size: 200px;
+}
+
+.smiley > h3 {
+    font-weight: normal;
+}
+
+ table td {
+    padding: 40px 0 10px 40px;
+    color: #fff;
+    font-style: italic;
+}
+
+
+.button {
+    margin: 40px 0 20px 120px;
+    padding: 10px;
+    font-style: italic;
+    border: none;
+    border-radius: 3px;
+}
+
+/*.footer {
+    background: #fff;
+    position: relative;
+    height: 100px;
+    margin-top: -100px;
+    clear: both;
+    text-align: center;
+    padding-top: 30px;
+
+}*/
