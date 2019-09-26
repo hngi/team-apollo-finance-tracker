@@ -29,7 +29,7 @@ $sql = "CREATE TABLE users (
         `fullname` varchar(128) NOT NULL,
         `password` varchar(128) NOT NULL,
         `email` varchar(128) NOT NULL,
-        `time` varchar(128) NOT NULL,
+        `time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id)
 )";
 /*i intensionally used varchar as datatype of time so we save the return value of time() function by doing this we will be able to manipulate as needed
@@ -45,7 +45,7 @@ if ($conn->query($sql) === true) {
 $sql = "CREATE TABLE expense (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `userId` int(11) NOT NULL,
-`time` varchar(128) NOT NULL,
+`time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 `item` varchar(200)  NOT NULL,
 `cost` DECIMAL(19,2)  NOT NULL,
 `details` varchar(225),
