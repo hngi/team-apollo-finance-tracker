@@ -1,6 +1,6 @@
 **_First Of All...._**
-# Introduction.
-This repository is an sample repo to introduce git workflow which we'll use in the real project. You should have git install by now. In addition, you should also install the GUI App (GitHub Desktop). If you've not installed GitHub Desktop, install it now [from here](https://desktop.github.com/).   
+## Introduction.
+You should have git install by now. In addition, you should also install the GUI App (GitHub Desktop). If you've not installed GitHub Desktop, install it now [from here](https://desktop.github.com/).   
 Now use the **Clone or Download** button to clone this repository to your computer. Select, **Open in Desktop** and wait. See how seamlessly it works?
 
 ## Collaborating

@@ -178,3 +178,99 @@ The anchor tag in HTML has a specific function - linking a user to another page.
 Write clean code. Make things modular. Keep external libraries to minimum to avoid making the app bloated.
 Further guidelines may be included as the project progresses.
 
+
+## BACKEND
+Kindly take note of the following when working on the backend.   
+
+### Creating Endpoints / Routes.
+The functions you write we'll be exposed to the frontend via specific URL endpoints. Use `route.php` to register these endpoints whenyou create a new one. See the sample below.
+
+```php
+<?php
+//Go to route.php file to add your file e.g to add dashboard.php 
+//go to route and locate the switch statement to add a case for your new addition
+//check the code below
+switch ( $url_array[$indexOfIndexPHP+1]) {
+	case 'dashboard':
+	require_once "dashboard.php";
+	break;
+	default:
+	echo "404";
+}
+```
+
+### Using The Simple Query Helper
+To make database queries easier, **and safer**, an helper module has been created in `Database.php`. _All database operations **must** be made using this helper module._ Errors in database operations can be very costly, so *please* adhere to this rule. The module may be extended to provide more functionality.
+
+```php
+<?php
+//Require the database.php file.
+//Create a new object...
+//...and use the query() method for non-selecting SQL operations (Insert, Delete, Drop, etc).
+//For selecting use the select() method. 
+//Remember to call the close() method in either case.
+
+require 'Database.php';
+$db = new Database();
+
+//Selecting from db
+$result = $db->select("SELECT * FROM users WHERE time=1455667788;");
+if ($result == 0) {
+	echo "No Records";
+}
+else {
+	var_dump($result);
+	//Returns the multi array containing array of each row.
+}
+$db->close();
+
+//Any other query apart from select
+if ( $db -> query(
+				"INSERT INTO users (firstname, lastname, email, password, phone, time)
+				VALUES ('John3', 'Doe3', 'john@example.com', 'password', '0906844632', 1455667788);"
+			)
+		) {
+	echo "Worked";
+}
+else {
+	echo "Not Working";
+}
+$db->close();
+```
+
+### Format for Returning Data
+We are using JSON to return data to the frontend. Check the example below.
+
+```json
+{
+	"error": 0,
+	"successMessage": "User added ...",
+	"action": " register"
+}
+
+//on error
+{
+	"error": 1,
+	"errorMessage": "the error message",
+	"action": "register"
+}
+```
+### Adding Dashboard function
+ adding new function relating to dashboard can now/should be done in the dashboard.php  class as a method if  i want to commit a code that get all Expense i will declare a public method in the dashboard.php as follows:
+...
+```php
+
+   public function getAllExpense(id =NULL){//do some operation here
+   } 
+
+```
+...
+   and also if you need to get maybe an id then the parameter of your function will be the id .for example a link like this localhost/backend/route.php/dashboard/getExpense/45 will call the getExpense funtion in the class dashboard with 45 as the parameter the code will look like:
+...
+   ```php
+ public function getExpense($id){//do some operation here
+
+  getExpenseById($id);//$Id will equal to anything in the url last section incase of the above 45
+   } 
+   ```
+  ...
