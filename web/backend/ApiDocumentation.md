@@ -22,5 +22,17 @@ gotten from successMessage
 ```
 ...
 
+###### Incorrect Login Details
+
+...
+```json
+{
+  "error": 1,
+  "errorMessage": "Either Email is Incorrect or Account Not Exists",
+  "report": "accountNotExists"
+}
+```
+...
+
 
  
