@@ -5,8 +5,8 @@
  
 <body>
 <?php
-//including the database connection file
-include('Database.php');
+//including the database connection file(either named process.php or config.php
+include('config.php');
 
 if(isset($_POST['Submit'])) {    
 
