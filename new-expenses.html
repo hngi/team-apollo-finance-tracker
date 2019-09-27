@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Add Expenses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  -->
+    <link rel="stylesheet" type="text/css" href="new-expenses.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+      
+    <form class="form is-login" action="backend/login.php" method="POST">
+        <h2 class="heading">Record New Expenses</h2>
+		<div class="form__field">
+            <i class="material-icons">calendar_today</i>
+            <input type="date" name="Date" placeholder="Date">
+		</div>
+		<div class="form__field">
+            <i class="material-icons">shop</i>
+			<input type="text" name="Item" placeholder="Item or Service">
+		</div>
+		<div class="form__field">
+			<i class="material-icons">attach_money</i>
+			<input type="text" name="amount" placeholder="Amount">
+			<i class="fa fa-eye-slash icon is-show-password"></i>
+        </div>
+        <div class="form__field">
+                <i class="material-icons">book</i>
+                <textarea minlength="20" name="description" placeholder="Additional description (optional)."></textarea>
+        </div>
+        <input type="submit" name="submit" value="Add Expenses">
+	</form>
+
+
+
+
+
+  </body>
+</html>
