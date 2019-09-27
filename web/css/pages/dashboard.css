@@ -5,9 +5,7 @@
 
 html, body {
     background: #555;
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   /* overflow: hidden; */
+    font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
 a {
@@ -23,12 +21,6 @@ li {
     width: 100%;
     margin: 0 auto;
 }
-
-/*section {
-    overflow: auto;
-    padding-bottom: 100px;
-
-}*/
 
 .navbar {
     background: #fff;
@@ -124,7 +116,6 @@ li {
     font-style: italic;
 }
 
-
 .button {
     margin: 40px 0 20px 120px;
     padding: 10px;
@@ -132,14 +123,3 @@ li {
     border: none;
     border-radius: 3px;
 }
-
-/*.footer {
-    background: #fff;
-    position: relative;
-    height: 100px;
-    margin-top: -100px;
-    clear: both;
-    text-align: center;
-    padding-top: 30px;
-
-}*/
