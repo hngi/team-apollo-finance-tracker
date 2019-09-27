@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard - Finance Tracker</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="backend/css/pages/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <script>
+        const normalizeViewportHeight = () => {
+            let viewport = document.querySelector('meta[name="viewport"]');
+            let newViewport = viewport;
+            defaultValue = "width=device-width, height=device-height, initial-scale=1.0";
+            normalizedValue = "width=device-width, height=500, initial-scale=1.0"
+            if (document.documentElement.clientHeight < 500) {
+                newViewport.setAttribute("content", normalizedValue);
+                document.head.replaceChild(newViewport, viewport);
+            } else if (document.documentElement.clientHeight > 500) {
+                newViewport.setAttribute("content", defaultValue);
+                document.head.replaceChild(newViewport, viewport);
+            }
+        }
+        window.onload = normalizeViewportHeight;
+        window.onresize = normalizeViewportHeight;
+    </script>
+
+</head>
+
+<body>
+    <div class="frame">
+        <header class="navigation-area">
+            <h3 class="app-name">Apollo Probe</h3>
+            <h1 class="heading">Dashboard</h1>
+
+            <nav class="navigation-area__nav">
+                <div class="tabs-wrapper">
+                    <button class="tab is-summary is-current">
+						Summary
+					</button>
+
+                    <button class="tab is-history">
+						History
+					</button>
+                    <a href="profile.php" class="tab profile" style="text-decoration: none;color: white;margin: 10px;font-size: 14px">
+						Profile
+					</a>
+                    <button onclick="logOut()" class="tab is-logout">
+						Logout
+					</button>
+                </div>
+
+                <select name="period" class="period">
+					<option value="day">Today</option>
+					<option value="Month">This Month</option>
+					<option value="year">This year</option>
+				</select>
+            </nav>
+        </header>
+
+        <main class="main">
+            <section class="details is-summary">
+                <table class="summary-table">
+                    <tr class="summary-table__row">
+                        <td class="summary-table__label">Spending Limit</td>
+                        <td class="summary-table__value">
+                            <span data-limit>Unset</span> &nbsp; &nbsp;
+                            <i class="configure-limit fas fa-wrench"></i>
+                        </td>
+                    </tr>
+                    <tr class="summary-table__row">
+                        <td class="summary-table__label">Total Expenditure</td>
+                        <td class="summary-table__value">
+                            <span data-total>N/A</span>
+                        </td>
+                    </tr>
+                    <tr class="summary-table__row is-verdict is-deficit">
+                        <td class="summary-table__label is-verdict">
+                            Deficit
+                        </td>
+                        <td class="summary-table__value is-verdict">
+                            <span data-deficit>N/A</span>
+
+                        </td>
+                    </tr>
+                </table>
+                <button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
+            </section>
+
+            <section class="details is-history is-hidden">
+                <ul class="history-list" style="max-height: 250px;overflow-y: auto;">
+
+                    <center><img class='spin-this' style='max-width:30px;' src='./images/loader.png' />
+                    </center>
+
+                </ul>
+
+                <button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
+            </section>
+
+            <hr class="vertical-divider">
+
+            <p class="comment">
+                <i class="comment__emoji">&#128530;</i>
+                <!--happy => &#128515;-->
+                <span> Come, you think you are Bill Gate right? Continue.</span>
+            </p>
+        </main>
+        <div class="center__button"></div>
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/logout.js"></script>
+
+</body>
+
+</html>

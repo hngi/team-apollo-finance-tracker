@@ -1,0 +1,367 @@
+@import url("../globals.css");
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100vh;
+	background-image: linear-gradient(to bottom, #21314c,  #111c2d, #21314c);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.frame {
+	height: 90vh;
+	border: 20px solid black;
+	background-color: black;
+	border-bottom-width: 40px;
+	border-radius: 20px;
+	max-width: 900px;
+	position: relative;
+}
+
+.center__button {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	background-color: #111C2D;
+	border-radius: 50%;
+	bottom: -32.5px; /*The button height plus the gap between button and top of frame's bottom-border.*/
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: 35px;
+}
+
+@media (max-width: 500px) {
+.frame {
+border: none;
+height: 100%;
+width: 100%;
+}
+
+.center__button {
+display: none;
+}
+}
+
+.navigation-area {
+	background-color: #1C2F56;
+	height: 25%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 20px 0;
+	border-radius: 10px 10px 0 0;
+}
+
+.app-name {
+
+}
+
+.heading {
+	text-align: center;
+}
+
+.navigation-area__nav {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding-right: 10px;
+}
+
+.tabs-wrapper {
+	flex: 0 0 50%; /*Same as the details section in <main>.*/
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.tab {
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	opacity: .8;
+	cursor: pointer;
+}
+
+.tab:focus {
+	outline: none;
+}
+
+.tab.is-current {
+	border-bottom: 5px solid var(--primary-color);
+	opacity: .9;
+}
+
+.period {
+	background: #1C2F56;
+	border-radius: 5px;
+	padding: 0.5%;
+	color: inherit;
+	margin-bottom: 10px;
+}
+
+main {
+	background-color: #33486E;
+	height: 75%;
+	width: 100%;
+	border-radius: 0 0 10px 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 100%;
+	flex: 0 0 50%;
+	position: relative;
+}
+
+.details.is-hidden {
+	display: none;
+}
+
+.summary-table {
+	border-collapse: collapse;
+}
+
+.summary-table__label,
+.summary-table__value {
+	padding-bottom: 20px;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 42px;
+}
+
+.summary-table__label {
+	padding-right: 40px;
+}
+
+.summary-table__label.is-verdict,
+.summary-table__value.is-verdict {
+	padding-top: 10px;
+	border-top: 2px solid var(--pale-border);
+}
+
+.button {
+	font-style: italic;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.history-list {
+	height: 100%;
+	padding-top: 30px;
+	width: 100%;
+}
+
+.history-item {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding: 20px 10px;
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	align-items: center;
+	cursor: pointer;
+}
+
+.history-item:last-child {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.history-item__icon {
+	display: flex;
+}
+
+.history-item__name {
+	display: flex;
+	flex-direction: column;
+}
+
+.history-item__date {
+	font-size: x-small
+}
+
+.history-item__cost {
+	display: flex;
+}
+
+.details.is-history .button {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.vertical-divider {
+	flex: 0 0 1px;
+}
+
+.comment {
+	flex: 0 0 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: justify;
+	margin-top: -50px;
+}
+
+.comment__emoji {
+	font-size: 7rem;
+	font-style: normal;
+}
+
+@media (max-width:500px) {
+.vertical-divider {
+	display: none;
+}
+
+.comment {
+	display: none;
+}
+}
+
+/*Add-expense form.*/
+.form {
+	padding: 30px 3%;
+	height: 67vh;
+	width: 430px;
+	align-self: flex-end;
+	border-radius: 25px;
+	background: white;
+	box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	z-index: 2;
+	transition: opacity 1s ease;
+	overflow: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.page-header__action.button{
+		display: none;
+	}
+
+	.form {
+		width: 80vw;
+		padding: 30px 5%;
+		margin-right:auto;
+		margin-left: auto;
+		margin-top:-200px;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
+	}
+}
+
+.form.is-login .form__field.is-confirm-password,
+.form.is-signup .form__link.is-forgot-password {
+	display: none;
+}
+
+.transparent {
+	opacity: 0;
+}
+
+.form__field {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--primary-color);
+	/*An obscenely large border radius makes the shorter side a perfect curve*/
+	border-radius: 1000px;
+	height: 50px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+
+.form__field input {
+	border: none;
+	margin: 0 0;
+	padding: 0 10px;
+	flex: 100 100 90%; /*flex-grow flex-shrink flex-basis*/
+
+	height: 100%;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 0 1000px 1000px 0;
+}
+
+.form__field .icon {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 1 10%;
+	/*flex-grow flex-shrink flex-basis*/
+	padding: 0 10px;
+	background-color: var(--primary-color);
+	color: white;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 1000px 0 0 1000px
+}
+
+.form__field .icon.is-show-password {
+	background-color: initial;
+	color: var(--primary-color);
+	position: absolute;
+	right: 0;
+	z-index: 2;
+	cursor: pointer;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 0 1000px 1000px 0;
+}
+
+.form__link.is-forgot-password {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 110%;
+}
+
+.form__submit {
+	border-radius: 25px;
+	text-transform: uppercase;
+	padding: 9px 49px;
+	background: var(--primary-color);
+	margin: 0 auto;
+	color: white;
+	border: none;
+	display: flex;
+	cursor: pointer;
+}
+
+.form__link {
+	text-align: center;
+}
+
+.form__link.is-signup-toggle {
+	margin-top: 10px;
+}
+
+
+/*Colour shades that complement
+#1C2F56
+#33486E
+#111C2D
+#1C2F55
+#33486E
+#668AD2
+#5474B4
+#415B8B*/

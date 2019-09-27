@@ -1,0 +1,166 @@
+@import url("../globals.css");
+@import url("../shared/footer.css");
+
+body {
+	display: flex;
+	flex-flow: column nowrap;
+position: relative;
+	height: 100vh;
+}
+
+.page-header {
+	background-image: url("../../images/curved-header-bg.png");
+	background-size: 100% 100%;
+	color: white;
+	height: 60vh;
+	width: 100vw;
+	padding: 15px 10vw 10vh 10vw;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.page-header__title {
+
+}
+
+.page-header__pitch {
+	width: 35vw;
+}
+
+.page-header__action {
+	display: block;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+.page-header__pitch {
+	display: none;
+}
+
+.page-header__action {
+	display: none;
+}
+}
+
+.form {
+	padding: 30px 3%;
+	height: 67vh;
+	width: 430px;
+position: absolute;
+right: 100px;
+top: 50%;
+transform: translateY(-50%);
+	border-radius: 25px;
+	background: white;
+	box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	z-index: 2;
+	transition: opacity 1s ease;
+	overflow: auto;
+}
+
+@media screen and (max-width: 600px) {
+	.page-header__action.button{
+		display: none;
+	}
+
+	.form {
+		width: 80vw;
+		padding: 30px 5%;
+		right: 50%;
+transform: translate(50%, -50%);
+		border-radius: 10px;
+		background: white;
+		box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
+	}
+}
+
+.form.is-login .form__field.is-confirm-password,
+.form.is-signup .form__link.is-forgot-password {
+	display: none;
+}
+
+.transparent {
+	opacity: 0;
+}
+
+.form__field {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--primary-color);
+	/*An obscenely large border radius makes the shorter side a perfect curve*/
+	border-radius: 1000px;
+	height: 50px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+
+.form__field input {
+	border: none;
+	margin: 0 0;
+	padding: 0 10px;
+	flex: 100 100 90%; /*flex-grow flex-shrink flex-basis*/
+
+	height: 100%;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 0 1000px 1000px 0;
+}
+
+.form__field .icon {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 1 10%;
+	/*flex-grow flex-shrink flex-basis*/
+	padding: 0 10px;
+	background-color: var(--primary-color);
+	color: white;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 1000px 0 0 1000px
+}
+
+.form__field .icon.is-show-password {
+	background-color: initial;
+	color: var(--primary-color);
+	position: absolute;
+	right: 0;
+	z-index: 2;
+	cursor: pointer;
+	/*Prevent bleeding off the curved edge of the input field*/
+	border-radius: 0 1000px 1000px 0;
+}
+
+.form__link.is-forgot-password {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 110%;
+}
+
+.form__submit {
+	border-radius: 25px;
+	text-transform: uppercase;
+	padding: 9px 49px;
+	background: var(--primary-color);
+	margin: 0 auto;
+	color: white;
+	border: none;
+	display: flex;
+	cursor: pointer;
+}
+
+.form__link {
+	text-align: center;
+}
+
+.form__link.is-signup-toggle {
+	margin-top: 10px;
+}
