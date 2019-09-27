@@ -6,7 +6,7 @@ else if its 0 that means no error occured and operation is successfull so the su
 gotten from successMessage
 
 
-## link_to_route/route.php/signin POST Request
+## link_to_route/route.php/logout POST Request
 <br>
 #### POST VARIABLE : submit,email
 
