@@ -65,12 +65,28 @@ form.addEventListener('submit', (e) => {
 
    fetch(url, {
 	   method: 'POST',
-	   body: formData;
+	   body: formData
    }).then((response) => {
-	   return dashboard.html();
+	   return 'dashboard.html';
    }).then((text) => {
 	   console.log(text);
    }).catch((error) => {
 	   console.error(error);
    })
+
+   form2.addEventListener('submit', (e) => {
+	e.preventDefault();
+ 
+	const formData = new FormData(this);
+ 
+	fetch(url, {
+		method: 'POST',
+		body: formData
+	}).then((response) => {
+		return 'dashboard.html';
+	}).then((text) => {
+		console.log(text);
+	}).catch((error) => {
+		console.error(error);
+
 });
