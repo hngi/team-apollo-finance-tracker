@@ -12,83 +12,6 @@ body {
 	align-items: center;
 }
 
-.header{
-    margin: 0%;
-    padding: 0%;
-    background-image: url(" ");
-    height: 245px;
-}
-
-.heading{
-    text-transform: uppercase;
-    position: relative;
-    left: 5%;
-    top: 10%;
-}
-
-.second-heading{
-    position: relative;
-    left: 45%;
-    right: 45%;
-    font-size: 2rem;
-}
-
-.span{
-    position: relative;
-    left: 9%;
-    font-size: 1.3rem;
-    line-height: 28px;
-}
-
-.period {
-    position: relative;
-    left: 60%;
-    background: #1C2F56;
-    border-radius: 5px;
-		padding: 0.5%;
-		color: inherit;
-}
-
-a {
-	text-decoration: none;
-	color: white;
-}
-
-.smiley {
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-}
-
-.smiley > p {
-    font-size: 5rem;
-    font-weight: normal;
-    margin-block-end: 0%;
-    margin-block-start: 0%;
-}
-
-.smiley > h3 {
-    font-weight: normal;
-}
-
-table td {
-	padding: 40px 0 10px 40px;
-	font-style: italic;
-	font-weight: 500;
-	font-size: 1.2rem;
-	line-height: 42px;
-}
-
-.button {
-    margin: 40px 0 20px 120px;
-    font-style: italic;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
- /* boilerplate code */
 .frame {
 	height: 90vh;
 	border: 20px solid black;
@@ -96,37 +19,151 @@ table td {
 	border-bottom-width: 40px;
 	border-radius: 20px;
 	max-width: 900px;
+	position: relative;
 }
 
-nav {
+.center__button {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	background-color: #111C2D;
+	border-radius: 50%;
+	bottom: -32.5px; /*The button height plus the gap between button and top of frame's bottom-border.*/
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: 35px;
+}
+
+.navigation-area {
 	background-color: #1C2F56;
-	height: 20vh;
+	height: 25%;
 	width: 100%;
-	margin: 0 auto;
-	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 20px 0;
 	border-radius: 10px 10px 0 0;
+}
+
+.app-name {
+
+}
+
+.heading {
+	text-align: center;
+}
+
+.navigation-area__nav {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding-right: 10px;
+}
+
+.tabs-wrapper {
+	flex: 0 0 50%; /*Same as the details section in <main>.*/
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.tab {
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	opacity: .8;
+	cursor: pointer;
+}
+
+.tab:focus {
+	outline: none;
+}
+
+.tab.is-current {
+	border-bottom: 5px solid var(--primary-color);
+	opacity: .9;
+}
+
+.period {
+	background: #1C2F56;
+	border-radius: 5px;
+	padding: 0.5%;
+	color: inherit;
+	margin-bottom: 10px;
 }
 
 main {
 	background-color: #33486E;
-	height: 63vh;
+	height: 75%;
 	width: 100%;
 	border-radius: 0 0 10px 10px;
 	display: flex;
 	flex-wrap: nowrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
-.center__button {
-	width: 4vw;
-	height: 2vh;
-	position: relative;
-	background-color: #111C2D;
-	border-radius: 50%;
-	margin: 0 auto;
-	top: 1.5vh;
-	max-width: 35px;
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 100%;
+	flex: 0 0 50%;
+}
+
+.details.is-hidden {
+	display: none;
+}
+
+.summary-table {
+	border-collapse: collapse;
+}
+
+.summary-table__label,
+.summary-table__value {
+	padding-bottom: 20px;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 42px;
+}
+
+.summary-table__label {
+	padding-right: 40px;
+}
+
+.summary-table__label.is-verdict,
+.summary-table__value.is-verdict {
+	padding-top: 10px;
+	border-top: 2px solid var(--pale-border);
+}
+
+/*.summary-table__row.is-limit .configure {
+	height: 1em;
+}*/
+
+.button {
+	font-style: italic;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.vertical-divider {
+	flex: 0 0 1px;
+}
+
+.comment {
+	flex: 0 0 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: justify;
+}
+
+.comment__emoji {
+	font-size: 7rem;
+	font-style: normal;
 }
 
 /*Colour shades that complement

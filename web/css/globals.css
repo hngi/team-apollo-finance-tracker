@@ -5,9 +5,10 @@
 }
 
 :root {
-	--primary-color: #273D64;
-	--primary-color-dark: #111C2D;
+	--primary-color: #33486E;
+	--primary-color-dark: #1C2F56;
 	--accent-color: rgb(145, 107, 26);
+	--pale-border: rgba(28, 47, 86, 0.5);
 
 	width: 100vw; 
 	overflow-x: hidden;
@@ -39,7 +40,7 @@ h1 {
   border: none;
   border-radius:  1000px;
   background-color: var(--accent-color);
-  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
   color: white;
   text-decoration: none;
 	cursor: pointer;
@@ -53,7 +54,7 @@ h1 {
 
 .button:active {
 	transition: none;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: none;
 }
 
 .button.is-disabled {
@@ -63,7 +64,6 @@ h1 {
 .vertical-divider {
 	width: 1px;
 	height: 80%;
-	border-color: var(--primary-color-dark);
-	opacity: 0.5;
+	border-color: var(--pale-border);
 }
 /*END BUTTON STYLES*/
