@@ -32,8 +32,6 @@ body {
 	display: block;
 	margin-bottom: 20px;
 }
-@media screen and (min-width: 600px){
-
 
 .form {
 	padding: 30px 3%;
@@ -52,14 +50,13 @@ body {
 	transition: opacity 1s ease;
 	overflow: auto;
 }
-}
-
 
 @media screen and (max-width: 600px) {
 	.page-header__action.button{
 		display: none;
 	}
-.form {
+
+	.form {
 		width: 80vw;
 		padding: 30px 5%;
 		margin-right:auto;
@@ -67,7 +64,7 @@ body {
 		margin-top:-200px;
 		border-radius: 10px;
 		background: white;
-	box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
+		box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
 	}
 }
 
