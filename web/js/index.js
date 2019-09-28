@@ -63,7 +63,7 @@ form.addEventListener('submit', (e) => {
    const formData = new FormData(this);
 
    fetch(url, {
-	   method: POST,
+	   method: 'POST',
 	   body: formData;
    }).then((response) => {
 	   return dashboard.html();
