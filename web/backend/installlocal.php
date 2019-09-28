@@ -63,13 +63,6 @@ else {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "ALTER TABLE `expense` ADD FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;";
-if ($conn->query($sql) === true) {
-    echo "Tables altered successfully";
-}
-else {
-    echo "Error Altering table: " . $conn->error;
-}
 
 echo "All is set now";
 $conn->close();

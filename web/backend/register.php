@@ -11,8 +11,10 @@ if (empty($_POST)) {
 else {
 	$email = $_POST['email'];
 	$surname = $_POST['surname'];
-	$password = $_POST['password'];
-	$confirm = $_POST['confirm'];
+	$password = md5($_POST['password']);
+	$confirm = md5($_POST['confirm']);
+            $time =date("Y-m-d");
+
 
 	if ($password!=$confirm) {
 		$data = array(
@@ -34,11 +36,12 @@ else {
 		exit();
 	}
 
-	$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
+	$sql = "INSERT INTO users(email,fullname,password,time,spending_limit) VALUES('$email','$fullname','$password','$time',0.00)";
 	require_once "Database.php";
 	$db = new Database();
 	$response = $db->query($sql);
 	$db->close();
+	
 	
 	if ($response == true) {
 		$data = array(

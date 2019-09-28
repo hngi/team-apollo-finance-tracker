@@ -13,7 +13,7 @@ class Dashboard {
   }
 
 	public function totalExpenses($id=NULL) {
-		$id=$_SESSION['userId'];
+		$id=$_SESSION['userId']=2;
 		$currentDay = date("Y-m-d"); //Today
 		$currentDayExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentDay%';");
 		$currentMonth = date("Y-m"); //PhP current Month
@@ -25,7 +25,7 @@ class Dashboard {
 		$result = array(
 			"id" => $id,
 			"day" => $currentDayExpenses,
-			"month" => $currentMonthExpenses,
+			"Month" => $currentMonthExpenses,
 			"year" => $currentYearExpenses,
 			"limit" => $rows[0]['spending_limit']
 		);
@@ -128,10 +128,10 @@ $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';"
 			$cost = $_POST['cost'];
 			$item=   $_POST['item'];
 			$details= $_POST['details'];
-			$time = time();
+            $time =date("Y-m-d");
 			
 			if (!empty($_POST)) {
-   			$sql= "INSERT INTO expenses(userId,time,item,cost,details) VALUES(".$_SESSION['userId'].",".$time.",".$cost.",".$details.");";
+$sql= "INSERT INTO expense (userId,time,item,cost,details) VALUES(".$_SESSION['userId'].",'".$time."','".$item."',".$cost.",'".$details."');";
 				if ($this->db->query($sql)) {
 					$data = array(
 						"error"=>0,
@@ -177,7 +177,7 @@ $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';"
 	public function deleteExpense($id = NULL) {
     if (isset($_SESSION['userId'])) {
     	if ($id == NULL) {
-  			$sql= "DELETE FROM expenses WHERE id=".$id.";";
+  			$sql= "DELETE FROM expense WHERE id=".$id.";";
 				if ($this->db->query($sql)) {
 					$data = array(
 						"error"=>0,
