@@ -54,6 +54,7 @@ $(".form__link.is-signup-toggle > a").click(toggleSignupForm);
 
 // Fetch API POST and GET request endpoint
 const form = document.getElementsByClassName('form-submit');
+const form2 = document.getElementsByClassName('is-signupp');
 const url = route.php/signin;
 const url2 = route.php/register;
 
