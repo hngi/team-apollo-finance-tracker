@@ -73,7 +73,7 @@ transform: translateY(-50%);
 		width: 80vw;
 		padding: 30px 5%;
 		right: 50%;
-transform: translateX(50%);
+transform: translate(50%, -50%);
 		border-radius: 10px;
 		background: white;
 		box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.35);
