@@ -1,80 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Finance Tracker Dashboard</title>
-    <link rel="stylesheet" href="css/pages/dashboard.css">
-    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+	<title>Finance Tracker Dashboard</title>
+	
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		
+  <link rel="stylesheet" href="css/pages/dashboard.css">
+	<link 
+		rel="stylesheet" type="text/css" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+	>
 </head>
 
 <body>
+	<div class="frame">
+		<header class="navigation-area">
+			<h3 class="app-name">Apollo Probe</h3>
+			<h1 class="heading">Dashboard</h1>
 
-    <div class="container">
-        <section>
+			<nav class="navigation-area__nav">
+				<div class="tabs-wrapper">
+					<button class="tab is-summary is-current">
+						Summary
+					</button>
+					<button class="tab is-history">
+						History
+					</button>
+				</div>
+				
+				<select name="period" class="period">
+					<option value="week">This week</option>
+					<option value="Month">This Month</option>
+					<option value="year">This year</option>
+				</select>
+			</nav>
+		</header>
 
-            <div class="navbar">
-                <div class="team-logo">Apollo Probe</div>
-                <div class="dashboard-nav">
-                    <div class="dashboard">Dashboard</div>
-                    <div class="period">
-                        <ul>
-                            <li><a href="#">Period <i class="em em-arrow_down_small"></i></a>
-                                <nav class="sub-navbar">
-                                    <ul>
-                                        <li><a href="#">This week</a></li>
-                                        <li><a href="#">This month</a></li>
-                                        <li><a href="#">This year</a></li>
-                                    </ul>
+		<main class="main">
+			<section class="details is-summary">
+				<table class="summary-table">
+					<tr class="summary-table__row">
+						<td class="summary-table__label">Spending Limit</td>
+						<td class="summary-table__value">
+							Unset &nbsp; &nbsp;
+							<i class="configure-limit fas fa-wrench"></i>
+						</td>
+					</tr>
+					<tr class="summary-table__row">
+						<td class="summary-table__label">Total Expenditure</td>
+						<td class="summary-table__value">N/A</td>
+					</tr>
+					<tr class="summary-table__row is-verdict is-deficit">
+						<td class="summary-table__label is-verdict">
+							Deficit
+						</td>
+						<td class="summary-table__value is-verdict">
+							N/A
+						</td>
+					</tr>
+				</table>
+				<button class="button">+ Expense</button>
+			</section>
 
-                                </nav>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+			<section class="details is-history is-hidden">
+				<ul class="history-list">
+					<li class="history-item is-product">
+						<i class="history-item__icon fas fa-shopping-cart"></i>
+						<span class="history-item__name">
+							Product Name
+							<small class="history-item__date">
+								DD/MM/YYYY
+							</small>
+						</span>
+						<span class="history-item__cost">&#8358;500</span>
+					</li>
 
-                <div class="navbar-nav">
-                    <ul>
-                        <li><a href="dashboard.html">Summary</a></li>
-                        <li><a href="transactions.html">Transactions</a></li>
+					<li class="history-item is-service">
+						<i class="history-item__icon fas fa-hammer"></i>
+						<span class="history-item__name">
+							Service Name
+							<small class="history-item__date">
+								DD/MM/YYYY
+							</small>
+						</span>
+						<span class="history-item__cost">&#8358;500</span>
+					</li>
+				</ul>
+				
+				<button class="button">+ Expense</button>
+			</section>
 
-                    </ul>
-                </div>
-            </div>
+			<hr class="vertical-divider">
 
+			<p class="comment">
+				<i class="comment__emoji">&#128530;</i><!--happy => &#128515;-->
+				<span> Come, you think you are Bill Gate right? Continue.</span>
+			</p>
+		</main>
+		<div class="center__button"></div>
+	</div>
 
-    </div>
+	<form class="form">
+		<div class="form__field">
+			<i class="fa fa-user icon"></i>
+			<input type="text" name="fullname" placeholder="Full Name">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-envelope icon"></i>
+			<input type="email" name="email" placeholder="Email">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-lock icon"></i>
+			<input type="password" name="password" placeholder="Password">
+			<i class="fa fa-eye-slash icon is-show-password"></i>
+			<a class="form__link is-forgot-password" href="#">
+				Forgot Password?
+			</a>
+		</div>
+	
+		<div class="form__field is-confirm-password">
+			<i class="fa fa-lock icon"></i>
+			<input type="password" name="confirm_password" placeholder="Confirm Password">
+		</div>
+	
+		<div>
+			<input type="submit" class="form__submit" name="login" value="LOG IN">
+			<p class="form__link is-signup-toggle">
+				New here?
+				<a href="#">
+					Sign up.
+				</a>
+			</p>
+		</div>
+	</form>	
 
-    <div class="frame">
-
-        <div class="table">
-            <table>
-                <tr>
-                    <td>Spending Limit</td>
-                    <td>#0000</td>
-                </tr>
-                <tr>
-                    <td>Total Expenditure</td>
-                    <td>#0000</td>
-                </tr>
-                <tr>
-                    <td>Deficit</td>
-                    <td>#0000</td>
-                </tr>
-            </table>
-            <button class="button">Expense</button>
-        </div>
-
-        <div class="smiley">
-            <p>&#128515;</p>
-            <h3>Come, you think you are Bill <br> Gate right? Continue!</h3>
-        </div>
-        </section>
-    </div>
-
-
-
+	<script src="js/dashboard.js"></script>
 </body>
-
 </html>
