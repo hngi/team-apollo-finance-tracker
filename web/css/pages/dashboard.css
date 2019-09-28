@@ -34,6 +34,16 @@ body {
 	max-width: 35px;
 }
 
+@media (max-width: 500px) {
+.frame {
+border: none;
+}
+
+.center__button {
+display: none;
+}
+}
+
 .navigation-area {
 	background-color: #1C2F56;
 	height: 25%;
