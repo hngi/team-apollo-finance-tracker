@@ -53,40 +53,19 @@ const toggleSignupForm = () => {
 $(".form__link.is-signup-toggle > a").click(toggleSignupForm);
 
 // Fetch API POST and GET request endpoint
-const form = document.getElementsByClassName('form-submit');
-const form2 = document.getElementsByClassName('is-signupp');
-const url = route.php/signin;
-const url2 = route.php/register;
+const formElement = document.querySelector('.form');
+const signupUrl = "./backend/route.php/register";
+const loginUrl = "./backend/login.php";
 
-form.addEventListener('submit', (e) => {
-   e.preventDefault();
-
-   const formData = new FormData(this);
-
-   fetch(url, {
-	   method: 'POST',
-	   body: formData
-   }).then((response) => {
-	   return 'dashboard.html';
-   }).then((text) => {
-	   console.log(text);
-   }).catch((error) => {
-	   console.error(error);
-   })
-
-   form2.addEventListener('submit', (e) => {
+formElement.onsubmit = (e) => {
 	e.preventDefault();
 
-	const formData = new FormData(this);
+	const formData = new FormData(formElement);
 
-	fetch(url, {
+	fetch(loginUrl, {
 		method: 'POST',
 		body: formData
-	}).then((response) => {
-		return 'dashboard.html';
-	}).then((text) => {
-		console.log(text);
-	}).catch((error) => {
-		console.error(error);
-
-}); 
+	}).then((response) => response)
+		.then((resParsed) => console.log(resParsed))
+		.catch((error) => console.error(error));
+}
