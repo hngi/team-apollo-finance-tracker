@@ -50,7 +50,7 @@ position: relative;
 	width: 430px;
 position: absolute;
 right: 100px;
-top: 0;
+top: 50%;
 /*transform: translateY(50%);*/
 	border-radius: 25px;
 	background: white;
