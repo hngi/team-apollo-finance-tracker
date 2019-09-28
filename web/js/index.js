@@ -53,19 +53,42 @@ const toggleSignupForm = () => {
 $(".form__link.is-signup-toggle > a").click(toggleSignupForm);
 
 // Fetch API POST and GET request endpoint
-const formElement = document.querySelector('.form');
 const signupUrl = "./backend/route.php/register";
 const loginUrl = "./backend/login.php";
 
-formElement.onsubmit = (e) => {
-	e.preventDefault();
 
-	const formData = new FormData(formElement);
+/* request function */
 
-	fetch(loginUrl, {
-		method: 'POST',
-		body: formData
-	}).then((response) => response)
-		.then((resParsed) => console.log(resParsed))
-		.catch((error) => console.error(error));
+async function sendRequest(url,data){
+
+function formEncode(obj) {
+var str = [];
+for(var p in obj)
+str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+return str.join("&");
+}
+
+var dat = await fetch(url, {
+method: 'POST',
+headers: { "Content-type": "application/x-www-form-urlencoded"},
+ credentials: "include",
+body: formEncode(data)
+}).then(res => res.json())
+.then(response => JSON.stringify(response))
+.catch(error => console.error('Error: '+error));
+
+return JSON.parse(dat);
+
+}
+
+
+function login(){
+alert("wanna login?");
+
+let password = document.querySelector("input[name='password']").value;
+let fullname = document.querySelector("input[name='fullname']").value;
+let submitBtn = document.querySelector("input[type='submit']");
+
+
+
 }
