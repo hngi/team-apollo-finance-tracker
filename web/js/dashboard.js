@@ -3,7 +3,7 @@ const historyTab = document.querySelector(".tab.is-history");
 
 const summaryContent = document.querySelector(".details.is-summary");
 const historyContent = document.querySelector(".details.is-history");
-appState = {url:"http://localhost/apollo/team-apollo-finance-tracker/web/backend/",
+appState = {url:"./backend/",
 loaderHTML :"<img class='spin-this' style='max-width:30px;' src='./images/loader.png'/>"
 ,screen:"summary"
 };
@@ -74,9 +74,9 @@ return JSON.parse(dat);
 
 
 function populateSummaryScreen() {
-let spendingLimit = document.querySelector("span[data-limit");
-let totalExpenditure = document.querySelector("span[data-total");
-let deficit = document.querySelector("span[data-deficit");
+let spendingLimit = document.querySelector("span[data-limit]");
+let totalExpenditure = document.querySelector("span[data-total]");
+let deficit = document.querySelector("span[data-deficit]");
 let time=document.querySelector('select[name="period"]').value;
 
 totalExpenditure.innerHTML = appState.loaderHTML;
