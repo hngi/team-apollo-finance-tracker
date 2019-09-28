@@ -25,6 +25,7 @@ $sql = "CREATE TABLE users (
 	`fullname` varchar(128) NOT NULL,
 	`password` varchar(128) NOT NULL,
 	`email` varchar(128) NOT NULL,
+	`spending_limit` DECIMAL(19,2),
 	`time` varchar(128) NOT NULL,
 	PRIMARY KEY (id)
 )";
