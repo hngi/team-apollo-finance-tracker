@@ -85,32 +85,44 @@ if (isset($_SESSION['userId'])) {
 
  }
 
-	public function getSpendingLimit($id=NULL){
 
-        $sql= "SELECT spending_limit FROM users WHERE id = '".$_SESSION['userId']."';";
-        $rows = $this->db->select($sql);
-        if ($rows != 0 ) {
+public function getExpensesHistory($id=NULL) {
+
+
+		$id=$_SESSION['userId'];
+		if ($_POST['sort'] =="day") {
+		$currentDay = date("Y-m-d"); //Today
+$sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';";
+         }
+         elseif ($_POST['sort'] =="Month") {
+	   $currentMonth = date("Y-m"); //PhP current Month
+       $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentMonth%';";
+		}else{
+		$currentYear = date("Y"); //PHP year value
+		 $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentYear%';";
+		}
+
+		$rows = $this->db->select($sql);
+        if ($rows != 0 ){
           $data = array(
             "error"=> 0,
-            "limit" => $rows[0]['spending_limit'],
-            "report" =>"gotSpendingLimit"
+            "limit" => $rows,
+            "report" =>"gotHistory"
           ); 
           echo json_encode($data,true);
+        }else{
+		$data = array(
+		            "error"=> 1,
+		            "errorMessage" => "No History Yet",
+		            "report" =>"noHistory"
+		          ); 
+		echo json_encode($data,true);
+
         }
-
-        else {
-          $data = array(
-            "error"=>1,
-            "errorMessage" => "Unknown Database Error",
-            "report" =>"unknownError"
-          ); 
-          echo json_encode($data,true);
-        }
-
-		$this->db->close();
-
+       $this->db->close();
+   
 	}
-
+	
 	public function addExpense($id = NULL) {
 		if (isset($_SESSION['userId'])) {
 			$cost = $_POST['cost'];
