@@ -66,4 +66,18 @@ h1 {
 	height: 80%;
 	border-color: var(--pale-border);
 }
+.spin-this {
+ animation: rotation 2s infinite linear;
+
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 /*END BUTTON STYLES*/
