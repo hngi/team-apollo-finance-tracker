@@ -9,8 +9,8 @@ gotten from successMessage
 ## link_to_route/route.php/dashboard/addspendinglimit POST Request
 <br>
 
-#### POST VARIABLE : cost,item,details
-details can be description of the service /product
+#### POST VARIABLE : limit
+
 
 ###### Onsuccessfull Addition
 
@@ -18,8 +18,8 @@ details can be description of the service /product
 ```json
 {
   "error": 0,
-  "successMessage": "Expense Added Successfully",
-  "report": "expenseSaved"
+  "successMessage": "Spending Limit Changed Successfully",
+  "report": "spendingLimitChanged"
 }
 ```
 ...
