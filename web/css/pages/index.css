@@ -33,6 +33,16 @@ body {
 	margin-bottom: 20px;
 }
 
+@media (max-width: 500px) {
+.page-header__pitch {
+	display: none;
+}
+
+.page-header__action {
+	display: none;
+}
+}
+
 .form {
 	padding: 30px 3%;
 	height: 67vh;
