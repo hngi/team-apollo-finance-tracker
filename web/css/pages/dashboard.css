@@ -34,6 +34,18 @@ body {
 	max-width: 35px;
 }
 
+@media (max-width: 500px) {
+.frame {
+border: none;
+height: 100%;
+width: 100%;
+}
+
+.center__button {
+display: none;
+}
+}
+
 .navigation-area {
 	background-color: #1C2F56;
 	height: 25%;
@@ -208,6 +220,16 @@ main {
 	font-style: normal;
 }
 
+@media (max-width:500px) {
+.vertical-divider {
+	display: none;
+}
+
+.comment {
+	display: none;
+}
+}
+
 /*Add-expense form.*/
 .form {
 	padding: 30px 3%;
@@ -228,6 +250,7 @@ main {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+display: none;
 }
 
 @media screen and (max-width: 600px) {
