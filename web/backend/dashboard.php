@@ -106,7 +106,7 @@ $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';"
         if ($rows != 0 ){
           $data = array(
             "error"=> 0,
-            "limit" => $rows,
+            "histories" => $rows,
             "report" =>"gotHistory"
           ); 
           echo json_encode($data,true);
