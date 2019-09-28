@@ -3,9 +3,17 @@
     padding: 0;
 }
 
-html, body {
-    background: #555;
+body {
     font-family: 'Segoe UI', Verdana, sans-serif;
+    width: 100%;
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.container{
+    background-image: url(/home/yusuf/Documents/HNG/team-apollo-finance-tracker/web/images/header-vector.png);
+    background-size: contain;
+
 }
 
 a {
@@ -20,6 +28,9 @@ li {
 .container {
     width: 100%;
     margin: 0 auto;
+    background-image: url(/home/yusuf/Documents/HNG/team-apollo-finance-tracker/web/images/header-vector.png);
+    background-repeat: no-repeat;
+
 }
 
 .navbar {
