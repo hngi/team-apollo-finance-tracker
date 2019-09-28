@@ -29,7 +29,7 @@ class Dashboard {
 
 		//this return the multi array containing array of each row
 		//var_dump($month_total); or
-	 return json_encode($result);
+	 echo json_encode($result);
 
 		$this->db->close();
 	}
