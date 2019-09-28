@@ -37,6 +37,8 @@ body {
 @media (max-width: 500px) {
 .frame {
 border: none;
+height: 100%;
+width: 100%;
 }
 
 .center__button {
