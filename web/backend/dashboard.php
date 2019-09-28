@@ -20,11 +20,14 @@ class Dashboard {
 		$currentMonthExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentMonth%';");
 		$currentYear = date("Y"); //PHP year value
 		$currentYearExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentYear%';");
+		$sql= "SELECT spending_limit FROM users WHERE id = '".$_SESSION['userId']."';";
+        $rows = $this->db->select($sql);
 		$result = array(
 			"id" => $id,
 			"day" => $currentDayExpenses,
 			"month" => $currentMonthExpenses,
 			"year" => $currentYearExpenses,
+			"limit" => $rows[0]['spending_limit']
 		);
 
 		//this return the multi array containing array of each row
