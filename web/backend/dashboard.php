@@ -82,7 +82,7 @@ if (isset($_SESSION['userId'])) {
 
  }
 
-	public function getSpendingLimit(){
+	public function getSpendingLimit($id=NULL){
 
         $sql= "SELECT spending_limit FROM users WHERE id = '".$_SESSION['userId']."';";
         $rows = $this->db->select($sql);
