@@ -32,7 +32,53 @@ class Dashboard {
 
 		$this->db->close();
 	}
+ public function addSpendingLimit($value=NULL)
+ {
+  
+if (isset($_SESSION['userId'])) {
+      $item=   $_POST['limit'];
+    
+      if (!empty($_POST)) {
+        $sql= "UPDATE users SET spending_limit='".$_POST['limit']."' WHERE id = '".$_SESSION['userId']."';";
+        if ($this->db->query($sql)) {
+          $data = array(
+            "error"=> 0,
+            "errorMessage" => "Spending Limit Changed Successfully",
+            "report" =>"spendingLimitChanged"
+          ); 
+          echo json_encode($data,true);
+        }
 
+        else {
+          $data = array(
+            "error"=>1,
+            "errorMessage" => "Unknown Database Error",
+            "report" =>"unknownError"
+          ); 
+          echo json_encode($data,true);
+        }
+      }
+
+      else {
+        $data = array(
+          "error"=>1,
+          "errorMessage" => "No Data Received by the backend",
+          "report" =>"noDataReceived"
+        ); 
+        echo json_encode($data, true);
+      }
+    }
+
+    else {
+      $data = array(
+        "error"=>1,
+        "errorMessage" => "You are not Logged in",
+        "report" =>"accountLoggedOut"
+      ); 
+      echo json_encode($data, true);
+    }
+
+ }
 	public function addExpense($id = NULL) {
 		if (isset($_SESSION['userId'])) {
 			$cost = $_POST['cost'];
