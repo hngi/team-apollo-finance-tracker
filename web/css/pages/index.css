@@ -6,7 +6,6 @@ body {
 	flex-flow: column nowrap;
 position: relative;
 	height: 100vh;
-padding-top: 10px;
 }
 
 .page-header {
@@ -15,7 +14,7 @@ padding-top: 10px;
 	color: white;
 	height: 60vh;
 	width: 100vw;
-	padding: 0 10vw 10vh 10vw;
+	padding: 15px 10vw 10vh 10vw;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
