@@ -18,7 +18,7 @@
 <body>
 	<div class="frame">
 		<header class="navigation-area">
-			<h3 class="app-name"> Apollo Probe</h3>
+			<h3 class="app-name">Apollo Probe</h3>
 			<h1 class="heading">Dashboard</h1>
 
 			<nav class="navigation-area__nav">
@@ -46,7 +46,7 @@
 						<td class="summary-table__label">Spending Limit</td>
 						<td class="summary-table__value">
 							Unset &nbsp; &nbsp;
-							<i class="configure-limit"></i>
+							<i class="configure-limit fas fa-wrench"></i>
 						</td>
 					</tr>
 					<tr class="summary-table__row">
@@ -68,7 +68,7 @@
 			<section class="details is-history is-hidden">
 				<ul class="history-list">
 					<li class="history-item is-product">
-						<i class="history-item__icon"></i>
+						<i class="history-item__icon fas fa-shopping-cart"></i>
 						<span class="history-item__name">
 							Product Name
 							<small class="history-item__date">
@@ -79,7 +79,7 @@
 					</li>
 
 					<li class="history-item is-service">
-						<i class="history-item__icon"></i>
+						<i class="history-item__icon fas fa-hammer"></i>
 						<span class="history-item__name">
 							Service Name
 							<small class="history-item__date">
@@ -102,6 +102,42 @@
 		</main>
 		<div class="center__button"></div>
 	</div>
+
+	<form class="form">
+		<div class="form__field">
+			<i class="fa fa-user icon"></i>
+			<input type="text" name="fullname" placeholder="Full Name">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-envelope icon"></i>
+			<input type="email" name="email" placeholder="Email">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-lock icon"></i>
+			<input type="password" name="password" placeholder="Password">
+			<i class="fa fa-eye-slash icon is-show-password"></i>
+			<a class="form__link is-forgot-password" href="#">
+				Forgot Password?
+			</a>
+		</div>
+	
+		<div class="form__field is-confirm-password">
+			<i class="fa fa-lock icon"></i>
+			<input type="password" name="confirm_password" placeholder="Confirm Password">
+		</div>
+	
+		<div>
+			<input type="submit" class="form__submit" name="login" value="LOG IN">
+			<p class="form__link is-signup-toggle">
+				New here?
+				<a href="#">
+					Sign up.
+				</a>
+			</p>
+		</div>
+	</form>	
 
 	<script src="js/dashboard.js"></script>
 </body>
