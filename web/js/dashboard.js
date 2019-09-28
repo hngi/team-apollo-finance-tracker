@@ -88,7 +88,7 @@ reqTotalExpenditure = sendRequest(appState.url+"route.php/dashboard/totalExpense
 reqTotalExpenditure.then(function(data){
     totalExpenditure.innerHTML= "&#8358;"+data[time];
     spendingLimit.innerHTML= "&#8358;"+data["limit"];
-    deficit.innerHTML=data["limit"]-data[time];
+    deficit.innerHTML=data[time]-data["limit"];
 });
 
 }
