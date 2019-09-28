@@ -1,136 +1,140 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+@import url("../globals.css");
 
 body {
-    font-family: 'Segoe UI', Verdana, sans-serif;
-    width: 100%;
-    margin: 0;
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	height: 100vh;
+	background-image: linear-gradient(to bottom, #21314c,  #111c2d, #21314c);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.container{
-    background-image: url(/home/yusuf/Documents/HNG/team-apollo-finance-tracker/web/images/header-vector.png);
-    background-size: contain;
 
+.header{
+    margin: 0%;
+    padding: 0%;
+    background-image: url(" ");
+    height: 245px;
+}
+
+.heading{
+    text-transform: uppercase;
+    position: relative;
+    left: 5%;
+    top: 10%;
+}
+
+.second-heading{
+    position: relative;
+    left: 45%;
+    right: 45%;
+    font-size: 2rem;
+}
+
+.span{
+    position: relative;
+    left: 9%;
+    font-size: 1.3rem;
+    line-height: 28px;
+}
+
+.period {
+    position: relative;
+    left: 60%;
+    background: #1C2F56;
+    border-radius: 5px;
+		padding: 0.5%;
+		color: inherit;
 }
 
 a {
-    text-decoration: none;
-    color: #555;
+	text-decoration: none;
+	color: white;
 }
 
-li {
-    list-style: none;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    background-image: url(/home/yusuf/Documents/HNG/team-apollo-finance-tracker/web/images/header-vector.png);
-    background-repeat: no-repeat;
-
-}
-
-.navbar {
-    background: #fff;
-    height: 100px;
-}
-
-.navbar .team-logo {
-    padding: 10px 0 0 20px;
-}
-
-.team-logo {
-    text-transform: uppercase;
-}
-
-.dashboard {
-    font-size: 30px;
-    font-weight: 700;
-}
-
-.dashboard-nav {
-    display: flex;
-    justify-content: center;
-}
-
-.navbar-nav ul {
-    display: flex;
-    line-height: 20px;
-}
-
-.navbar-nav ul li{
-    margin: 0 40px;
-}
-
-.dashboard-nav .dashboard {
-    position: relative;
-}
-
-.dashboard-nav .period {
-    position: absolute;
-    margin-left: 500px;
-    margin-top: 42px;
-}
-
-.sub-navbar {
-    display: none;
-}
-
-.navbar ul li:hover .sub-navbar {
-    display: block;
-    position: absolute;
-    background: #fff;
-}
-
-.navbar ul li:hover .sub-navbar ul {
-    display: block;
-    margin: 10px;
-}
-
-.navbar ul li:hover .sub-navbar ul li {
-    width: 150px;
-    padding: 10px;
-    text-align: left;
-}      
-
-.navbar ul li:hover .sub-navbar ul li:hover {
-    background-color: #eee;
-}
-
- .table{
-    display: block;
-    float: left;
-    width: 60%;     
-}
-
- .smiley {
-    display: block;
-    float: right;
-    width: 40%;
-    color: #fff;
+.smiley {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 }
 
 .smiley > p {
-    font-size: 200px;
+    font-size: 5rem;
+    font-weight: normal;
+    margin-block-end: 0%;
+    margin-block-start: 0%;
 }
 
 .smiley > h3 {
     font-weight: normal;
 }
 
- table td {
-    padding: 40px 0 10px 40px;
-    color: #fff;
-    font-style: italic;
+table td {
+	padding: 40px 0 10px 40px;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 42px;
 }
 
 .button {
     margin: 40px 0 20px 120px;
-    padding: 10px;
     font-style: italic;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
 }
+
+ /* boilerplate code */
+.frame {
+	height: 90vh;
+	border: 20px solid black;
+	background-color: black;
+	border-bottom-width: 40px;
+	border-radius: 20px;
+	max-width: 900px;
+}
+
+nav {
+	background-color: #1C2F56;
+	height: 20vh;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 10px 10px 0 0;
+}
+
+main {
+	background-color: #33486E;
+	height: 63vh;
+	width: 100%;
+	border-radius: 0 0 10px 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.center__button {
+	width: 4vw;
+	height: 2vh;
+	position: relative;
+	background-color: #111C2D;
+	border-radius: 50%;
+	margin: 0 auto;
+	top: 1.5vh;
+	max-width: 35px;
+}
+
+/*Colour shades that complement
+#1C2F56
+#33486E
+#111C2D
+#1C2F55
+#33486E
+#668AD2
+#5474B4
+#415B8B*/
