@@ -12,7 +12,8 @@ class Dashboard {
 		header('Content-Type: application/json');
   }
 
-	public function totalExpenses($id) {
+	public function totalExpenses($id=NULL) {
+		$id=$_SESSION['userId'];
 		$currentDay = date("Y-m-d"); //Today
 		$currentDayExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentDay%';");
 		$currentMonth = date("Y-m"); //PhP current Month
