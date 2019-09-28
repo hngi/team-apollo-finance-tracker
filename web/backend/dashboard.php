@@ -44,7 +44,7 @@ if (isset($_SESSION['userId'])) {
         if ($this->db->query($sql)) {
           $data = array(
             "error"=> 0,
-            "errorMessage" => "Spending Limit Changed Successfully",
+            "successMessage" => "Spending Limit Changed Successfully",
             "report" =>"spendingLimitChanged"
           ); 
           echo json_encode($data,true);
@@ -78,8 +78,36 @@ if (isset($_SESSION['userId'])) {
       ); 
       echo json_encode($data, true);
     }
+		$this->db->close();
 
  }
+
+	public function getSpendingLimit(){
+
+        $sql= "SELECT spending_limit FROM users WHERE id = '".$_SESSION['userId']."';";
+        $rows = $this->db->select($sql);
+        if ($rows != 0 ) {
+          $data = array(
+            "error"=> 0,
+            "limit" => $rows[0]['spending_limit'],
+            "report" =>"gotSpendingLimit"
+          ); 
+          echo json_encode($data,true);
+        }
+
+        else {
+          $data = array(
+            "error"=>1,
+            "errorMessage" => "Unknown Database Error",
+            "report" =>"unknownError"
+          ); 
+          echo json_encode($data,true);
+        }
+
+		$this->db->close();
+
+	}
+
 	public function addExpense($id = NULL) {
 		if (isset($_SESSION['userId'])) {
 			$cost = $_POST['cost'];
@@ -126,6 +154,9 @@ if (isset($_SESSION['userId'])) {
 			); 
 			echo json_encode($data, true);
 		}
+
+				$this->db->close();
+
 	}
 	
 	public function deleteExpense($id = NULL) {
@@ -169,7 +200,10 @@ if (isset($_SESSION['userId'])) {
 			); 
 			echo json_encode($data, true);
 		}
+				$this->db->close();
+
   }
+
 }
 ?>
 
