@@ -135,7 +135,7 @@ $sql= "INSERT INTO expense (userId,time,item,cost,details) VALUES(".$_SESSION['u
 				if ($this->db->query($sql)) {
 					$data = array(
 						"error"=>0,
-						"errorMessage" => "Expense Added Successfully",
+						"successMessage" => "Expense Added Successfully",
 						"report" =>"expenseSaved"
 					); 
 					echo json_encode($data,true);

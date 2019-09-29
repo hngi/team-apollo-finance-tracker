@@ -65,18 +65,18 @@
 						</td>
 					</tr>
 				</table>
-				<button class="button">+ Expense</button>
+				<button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
 			</section>
 
 			<section class="details is-history is-hidden">
-				<ul class="history-list">
+				<ul class="history-list" style="max-height: 250px;overflow-y: auto;">
 					
 					<center><img class='spin-this' style='max-width:30px;' src='./images/loader.png'/>
 </center>
 					
 				</ul>
 				
-				<button class="button">+ Expense</button>
+				<button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
 			</section>
 
 			<hr class="vertical-divider">
@@ -89,41 +89,6 @@
 		<div class="center__button"></div>
 	</div>
 
-	<!---<form class="form">
-		<div class="form__field">
-			<i class="fa fa-user icon"></i>
-			<input type="text" name="fullname" placeholder="Full Name">
-		</div>
-	
-		<div class="form__field">
-			<i class="fa fa-envelope icon"></i>
-			<input type="email" name="email" placeholder="Email">
-		</div>
-	
-		<div class="form__field">
-			<i class="fa fa-lock icon"></i>
-			<input type="password" name="password" placeholder="Password">
-			<i class="fa fa-eye-slash icon is-show-password"></i>
-			<a class="form__link is-forgot-password" href="#">
-				Forgot Password?
-			</a>
-		</div>
-	
-		<div class="form__field is-confirm-password">
-			<i class="fa fa-lock icon"></i>
-			<input type="password" name="confirm_password" placeholder="Confirm Password">
-		</div>
-	
-		<div>
-			<input type="submit" class="form__submit" name="login" value="LOG IN">
-			<p class="form__link is-signup-toggle">
-				New here?
-				<a href="#">
-					Sign up.
-				</a>
-			</p>
-		</div>
-	</form>	--->
 
 	<script src="js/dashboard.js"></script>
 </body>
