@@ -12,23 +12,27 @@ class Dashboard {
 		header('Content-Type: application/json');
   }
 
-	public function totalExpenses($id) {
+	public function totalExpenses($id=NULL) {
+		$id=$_SESSION['userId'];
 		$currentDay = date("Y-m-d"); //Today
 		$currentDayExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentDay%';");
 		$currentMonth = date("Y-m"); //PhP current Month
 		$currentMonthExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentMonth%';");
 		$currentYear = date("Y"); //PHP year value
 		$currentYearExpenses = $this->db->selectDashboardExpenses("SELECT SUM(cost) as expenses FROM expense WHERE userId = $id and `time` like '$currentYear%';");
+		$sql= "SELECT spending_limit FROM users WHERE id = '".$_SESSION['userId']."';";
+        $rows = $this->db->select($sql);
 		$result = array(
 			"id" => $id,
 			"day" => $currentDayExpenses,
-			"month" => $currentMonthExpenses,
+			"Month" => $currentMonthExpenses,
 			"year" => $currentYearExpenses,
+			"limit" => $rows[0]['spending_limit']
 		);
 
 		//this return the multi array containing array of each row
 		//var_dump($month_total); or
-		// return json_encode($result);
+	 echo json_encode($result);
 
 		$this->db->close();
 	}
@@ -43,7 +47,7 @@ if (isset($_SESSION['userId'])) {
         if ($this->db->query($sql)) {
           $data = array(
             "error"=> 0,
-            "errorMessage" => "Spending Limit Changed Successfully",
+            "successMessage" => "Spending Limit Changed Successfully",
             "report" =>"spendingLimitChanged"
           ); 
           echo json_encode($data,true);
@@ -77,21 +81,61 @@ if (isset($_SESSION['userId'])) {
       ); 
       echo json_encode($data, true);
     }
+		$this->db->close();
 
  }
+
+
+public function getExpensesHistory($id=NULL) {
+
+
+		$id=$_SESSION['userId'];
+		if ($_POST['sort'] =="day") {
+		$currentDay = date("Y-m-d"); //Today
+$sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';";
+         }
+         elseif ($_POST['sort'] =="Month") {
+	   $currentMonth = date("Y-m"); //PhP current Month
+       $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentMonth%';";
+		}else{
+		$currentYear = date("Y"); //PHP year value
+		 $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentYear%';";
+		}
+
+		$rows = $this->db->select($sql);
+        if ($rows != 0 ){
+          $data = array(
+            "error"=> 0,
+            "histories" => $rows,
+            "report" =>"gotHistory"
+          ); 
+          echo json_encode($data,true);
+        }else{
+		$data = array(
+		            "error"=> 1,
+		            "errorMessage" => "No History Yet",
+		            "report" =>"noHistory"
+		          ); 
+		echo json_encode($data,true);
+
+        }
+       $this->db->close();
+   
+	}
+	
 	public function addExpense($id = NULL) {
 		if (isset($_SESSION['userId'])) {
 			$cost = $_POST['cost'];
 			$item=   $_POST['item'];
 			$details= $_POST['details'];
-			$time = time();
+            $time =date("Y-m-d");
 			
 			if (!empty($_POST)) {
-   			$sql= "INSERT INTO expenses(userId,time,item,cost,details) VALUES(".$_SESSION['userId'].",".$time.",".$cost.",".$details.");";
+$sql= "INSERT INTO expense (userId,time,item,cost,details) VALUES(".$_SESSION['userId'].",'".$time."','".$item."',".$cost.",'".$details."');";
 				if ($this->db->query($sql)) {
 					$data = array(
 						"error"=>0,
-						"errorMessage" => "Expense Added Successfully",
+						"successMessage" => "Expense Added Successfully",
 						"report" =>"expenseSaved"
 					); 
 					echo json_encode($data,true);
@@ -125,12 +169,15 @@ if (isset($_SESSION['userId'])) {
 			); 
 			echo json_encode($data, true);
 		}
+
+				$this->db->close();
+
 	}
 	
 	public function deleteExpense($id = NULL) {
     if (isset($_SESSION['userId'])) {
     	if ($id == NULL) {
-  			$sql= "DELETE FROM expenses WHERE id=".$id.";";
+  			$sql= "DELETE FROM expense WHERE id=".$id.";";
 				if ($this->db->query($sql)) {
 					$data = array(
 						"error"=>0,
@@ -168,7 +215,10 @@ if (isset($_SESSION['userId'])) {
 			); 
 			echo json_encode($data, true);
 		}
+				$this->db->close();
+
   }
+
 }
 ?>
 

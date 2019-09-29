@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Finance Tracker Dashboard</title>
+	
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		
+  <link rel="stylesheet" href="css/pages/dashboard.css">
+	<link 
+		rel="stylesheet" type="text/css" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+	>
+</head>
+
+<body>
+	<div class="frame">
+		<header class="navigation-area">
+			<h3 class="app-name">Apollo Probe</h3>
+			<h1 class="heading">Dashboard</h1>
+
+			
+		</header>
+
+		<main class="main">
+				
+
+				<form class="forma">
+					<center><span class="display"></span></center><br>
+		<div class="form__field">
+			<i class="fa fa-cart-plus icon"></i>
+			<input type="text" name="item" placeholder="Product/Service">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-tag icon"></i>
+			<input type="text" name="cost" placeholder="Cost/Price">
+		</div>
+	
+		<div class="form__field">
+			<i class="fa fa-dedent icon"></i>
+			<input type="text" name="details" placeholder="Short Description">
+		</div>
+	
+		<div>
+				<center><button onclick="addExpense();return false;" class="button">+ Add</button>
+<br>
+<a href="./dashboard.html" style="text-decoration: none;color: white;margin: 16px">Go Back</a>
+				</center>
+		</div>
+	</form>
+
+
+			<hr class="vertical-divider">
+
+			<p class="comment">
+				<i class="comment__emoji">&#128530;</i><!--happy => &#128515;-->
+				<span> Come, you think you are Bill Gate right? Continue.</span>
+			</p>
+		</main>
+		<div class="center__button"></div>
+	</div>
+
+
+	<script src="js/add_expense.js"></script>
+</body>
+</html>

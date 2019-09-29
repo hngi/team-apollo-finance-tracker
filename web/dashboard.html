@@ -46,13 +46,17 @@
 					<button class="tab is-summary is-current">
 						Summary
 					</button>
+					
 					<button class="tab is-history">
 						History
+					</button>
+					<button onclick="logOut()" class="tab is-logout">
+						Logout
 					</button>
 				</div>
 				
 				<select name="period" class="period">
-					<option value="week">This week</option>
+					<option value="day">Today</option>
 					<option value="Month">This Month</option>
 					<option value="year">This year</option>
 				</select>
@@ -65,52 +69,38 @@
 					<tr class="summary-table__row">
 						<td class="summary-table__label">Spending Limit</td>
 						<td class="summary-table__value">
-							Unset &nbsp; &nbsp;
+							<span data-limit>Unset</span> &nbsp; &nbsp;
 							<i class="configure-limit fas fa-wrench"></i>
 						</td>
 					</tr>
 					<tr class="summary-table__row">
 						<td class="summary-table__label">Total Expenditure</td>
-						<td class="summary-table__value">N/A</td>
+						<td class="summary-table__value">
+                         <span data-total>N/A</span>
+						</td>
 					</tr>
 					<tr class="summary-table__row is-verdict is-deficit">
 						<td class="summary-table__label is-verdict">
 							Deficit
 						</td>
 						<td class="summary-table__value is-verdict">
-							N/A
+							<span data-deficit>N/A</span>
+							
 						</td>
 					</tr>
 				</table>
-				<button class="button">+ Expense</button>
+				<button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
 			</section>
 
 			<section class="details is-history is-hidden">
-				<ul class="history-list">
-					<li class="history-item is-product">
-						<i class="history-item__icon fas fa-shopping-cart"></i>
-						<span class="history-item__name">
-							Product Name
-							<small class="history-item__date">
-								DD/MM/YYYY
-							</small>
-						</span>
-						<span class="history-item__cost">&#8358;500</span>
-					</li>
-
-					<li class="history-item is-service">
-						<i class="history-item__icon fas fa-hammer"></i>
-						<span class="history-item__name">
-							Service Name
-							<small class="history-item__date">
-								DD/MM/YYYY
-							</small>
-						</span>
-						<span class="history-item__cost">&#8358;500</span>
-					</li>
+				<ul class="history-list" style="max-height: 250px;overflow-y: auto;">
+					
+					<center><img class='spin-this' style='max-width:30px;' src='./images/loader.png'/>
+</center>
+					
 				</ul>
 				
-				<button class="button">+ Expense</button>
+				<button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
 			</section>
 
 			<hr class="vertical-divider">
@@ -123,42 +113,9 @@
 		<div class="center__button"></div>
 	</div>
 
-	<form class="form">
-		<div class="form__field">
-			<i class="fa fa-user icon"></i>
-			<input type="text" name="fullname" placeholder="Full Name">
-		</div>
-	
-		<div class="form__field">
-			<i class="fa fa-envelope icon"></i>
-			<input type="email" name="email" placeholder="Email">
-		</div>
-	
-		<div class="form__field">
-			<i class="fa fa-lock icon"></i>
-			<input type="password" name="password" placeholder="Password">
-			<i class="fa fa-eye-slash icon is-show-password"></i>
-			<a class="form__link is-forgot-password" href="#">
-				Forgot Password?
-			</a>
-		</div>
-	
-		<div class="form__field is-confirm-password">
-			<i class="fa fa-lock icon"></i>
-			<input type="password" name="confirm_password" placeholder="Confirm Password">
-		</div>
-	
-		<div>
-			<input type="submit" class="form__submit" name="login" value="LOG IN">
-			<p class="form__link is-signup-toggle">
-				New here?
-				<a href="#">
-					Sign up.
-				</a>
-			</p>
-		</div>
-	</form>	
 
 	<script src="js/dashboard.js"></script>
+		<script src="js/logout.js"></script>
+
 </body>
 </html>
