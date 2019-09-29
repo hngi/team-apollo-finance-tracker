@@ -12,11 +12,10 @@ if (empty($_POST)) {
   );
 	echo json_encode($data, true);
 }
-
-$email = $_POST['email'];
+else{
+	$email = $_POST['email'];
 $password=  md5($_POST["password"]);
 
-else {
 	require_once "Database.php";
 	$db = new Database();
 
