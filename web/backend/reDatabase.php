@@ -6,18 +6,14 @@
 class Database {
 	public $conn;
 	public function __construct() {
-		/*$url = "mysql://jpq841kbg8gze4bg:licm3p4nty76w6oo@mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/spzgy3k82bs0ecb6";
+		$url = "mysql://jpq841kbg8gze4bg:licm3p4nty76w6oo@mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/spzgy3k82bs0ecb6";
 		$dbparts = parse_url($url);
 		
 		$hostname = $dbparts['host'];
 		$username = $dbparts['user'];
 		$password = $dbparts['pass'];
 		$database = ltrim($dbparts['path'],'/');
-*/
-		$hostname ="localhost";
-$username = "root";
-$password = "";
-$database="tracker";
+
 
 		// Create connection
 		$this->conn = new mysqli($hostname, $username, $password, $database);

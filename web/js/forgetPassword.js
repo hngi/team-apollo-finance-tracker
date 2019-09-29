@@ -29,7 +29,7 @@ return JSON.parse(dat);
 function forgetPassword(){
 let email = document.querySelector("input[name='email']").value;
 let display = document.querySelector("span[class='display']");
-let button = document.querySelector("button[class='button']");
+let button = document.querySelector("button[name='login']");
 
 button.innerHTML= loaderHTML;
 let doAdd = sendRequest(theForgUrl,{email:email,submit:1});
