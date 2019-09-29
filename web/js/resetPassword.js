@@ -29,7 +29,7 @@ return JSON.parse(dat);
 function resetPassword(){
 let email = document.querySelector("input[name='email']").value;
 let display = document.querySelector("span[class='display']");
-let button = document.querySelector("button[class='button']");
+let button = document.querySelector("button[name='login']");
 let password = document.querySelector("input[name='password']").value;
 
 button.innerHTML= loaderHTML;
