@@ -5,8 +5,10 @@
 }
 
 :root {
-	--primary-color: #273D64;
-	--primary-color-dark: #111C2D;
+	--primary-color: #33486E;
+	--primary-color-dark: #1C2F56;
+	--accent-color: rgb(145, 107, 26);
+	--pale-border: rgba(28, 47, 86, 0.5);
 
 	width: 100vw; 
 	overflow-x: hidden;
@@ -25,16 +27,57 @@ h1 {
 	line-height: 1.2em;
 }
 
-.button {
-	display: flex;
-	justify-content: center;
-	align-content: flex-end;
-	height: 40px;
-	border-radius: 10px;
-	font-size: 1.2rem;
+/*BUTTON STYLES*/
+.button { /*Button class*/
+	font-size: 1rem;
+	font-weight: bold;
+	letter-spacing: 0.07em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 10px 20px;
+  border: none;
+  border-radius:  1000px;
+  background-color: var(--accent-color);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
 	cursor: pointer;
+	transition: all .5s ease;
 }
 
-.button:hover {
-	background-color: var(--primary-color-light);
+.button:hover, .button:focus {
+	background-color: var(--primary-color-dark);
+	outline: none;
 }
+
+.button:active {
+	transition: none;
+  box-shadow: none;
+}
+
+.button.is-disabled {
+	opacity: 0.5;
+}
+
+.vertical-divider {
+	width: 1px;
+	height: 80%;
+	border-color: var(--pale-border);
+}
+.spin-this {
+ animation: rotation 2s infinite linear;
+
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/*END BUTTON STYLES*/

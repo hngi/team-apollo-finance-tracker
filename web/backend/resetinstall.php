@@ -20,6 +20,22 @@ echo "Connection was successfully established!";
 /** I intensionally used varchar as datatype of time, 
  * so we save the return value of time() function by doing this we will be able to manipulate as needed.
 */
+$sql = "DROP table users;";
+if ($conn->query($sql) === true) {
+  echo "<br>Table Users Dropped successfully<br>";
+} 
+else {
+  echo "Error Droping table users: " . $conn->error;
+}
+
+$sql = "DROP table expense;";
+if ($conn->query($sql) === true) {
+  echo "<br>Table Expense Dropped successfully<br>";
+} 
+else {
+  echo "Error droping  table expense: " . $conn->error;
+}
+
 $sql = "CREATE TABLE users (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`fullname` varchar(128) NOT NULL,
@@ -30,7 +46,7 @@ $sql = "CREATE TABLE users (
 	PRIMARY KEY (id)
 )";
 if ($conn->query($sql) === true) {
-  echo "Table Users created successfully";
+  echo "<br>Table Users created successfully<br>";
 } 
 else {
   echo "Error creating table: " . $conn->error;
@@ -47,7 +63,7 @@ $sql = "CREATE TABLE expense (
 	PRIMARY KEY (id)
 )";
 if ($conn->query($sql) === true) {
-    echo "Table expense created successfully";
+    echo "<br>Table expense created successfully<br>";
 } 
 else {
     echo "Error creating table: " . $conn->error;
