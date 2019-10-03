@@ -1,76 +1,96 @@
-
 <?php 
-	
-	
-	if (empty($_POST)) {
-		 $data = array(
-  "error" => 1,
-  "errorMessage" => "Field Cannot Be Empty",
-  "report"=> "emptyFields"
+if (empty($_POST)) {
+	$data = array(
+		"error" => 1,
+		"errorMessage" => "Field Cannot Be Empty",
+		"report"=> "emptyFields"
    );
-echo json_encode($data,true);
+	echo json_encode($data,true);
+}else{
+require_once "Database.php";
+    $email = $_POST['email'];
+	$fullname = $_POST['fullname'];
+	$password = $_POST['password'];
+	$confirm = $_POST['confirm'];
+    $time =date("Y-m-d");
 
+
+$db = new Database();
+
+	//selecting from db
+	$users = $db->select("SELECT * FROM users WHERE email ='".$email."';");
+
+
+
+
+	//Remove all illegal characters from email
+
+	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+	//Added Email Validation
+
+	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+		$data = array(
+			"error"=>1,
+			"errorMessage" => "You have entered an invalid Email ",
+			"report" =>"emailInvalid"
+		); 
+		echo json_encode($data,true);
+		$db->close();
+		exit();
 	}
 
-	else {
 
-		$email = $_POST['email'];
-		$surname = $_POST['surname'];
-		$password = $_POST['password'];
-		$confirm = $_POST['confirm'];
-
-		if ($password!=$confirm) {
-			
-			 $data = array(
-  "error" => 1,
-  "errorMessage" => "Password not matching",
-  "report"=> "passwordMisMatch"
-   );
-echo json_encode($data,true);
-			exit();
-		}
-
-		if (strlen($password) < 8) {
-			
-
-				 $data = array(
-  "error" => 1,
-  "errorMessage" => "Your password is too short..8 characters minimum",
-  "report"=> "passwordTooShort"
-   );
-echo json_encode($data,true);
-exit();
-		}
+	if ($users != 0) {
+		$data = array(
+			"error"=>1,
+			"errorMessage" => "Another Account is using this Email ",
+			"report" =>"emailExists"
+		); 
+		echo json_encode($data,true);
+		$db->close();
+		exit();
+	}
 
 
+
+if (md5($password) != md5($confirm)){
+		$data = array(
+			"error" => 1,
+			"errorMessage" => "Password not matching",
+			"report"=> "passwordMisMatch"
+   	);
+		echo json_encode($data,true);
+
+	}else if (strlen($password) < 8)//changed from <5 {
+		$data = array(
+			"error" => 1,
+			"errorMessage" => "Your password is too short..8 characters minimum",
+			"report"=> "passwordTooShort"
+   	);
+		echo json_encode($data,true);
+	}else{
+    $password = md5($password);
+	$sql = "INSERT INTO users(email,fullname,password,time,spending_limit) VALUES('$email','$fullname','$password','$time',0.00)";
+	
+	$db = new Database();
+	$response = $db->query($sql);
+	$db->close(); 
+	if ($response) {
 		
-		$sql = "INSERT INTO users(email,surname,password) VALUES('$email','$surname','$password')";
-
-		require_once "Database.php";
-		$db = new Database();
-     $response= $db->query($sql);
-         $db->close();
-		if ($response==true) {
-				 $data = array(
-  "error" => 0,
-  "successMessage" => "Thank you..Data has been captured in database",
-  "report"=> "registered"
-   );
-echo json_encode($data,true);
-		}
-
-		else {
-			
-						 $data = array(
-  "error" => 1,
-  "successMessage" => "Error encountered while saving your details. Retry",
-  "report"=> "unknownError"
-   );
-echo json_encode($data,true);
-		}
-
-	}
+$data = array(
+			"error" => 0,
+			"successMessage" => "Thank you..Data has been captured in database",
+			"report"=> "registered"
+   	);
+		echo json_encode($data,true);
+exit();
+}
 
 
+}
 
- ?>
+}
+	
+
+
