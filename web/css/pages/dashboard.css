@@ -355,6 +355,16 @@ display: none;
 	margin-top: 10px;
 }
 
+.social-media{
+	width: 30%;
+	position: fixed;
+	bottom: 0%;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 
 /*Colour shades that complement
 #1C2F56
