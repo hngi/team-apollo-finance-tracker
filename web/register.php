@@ -1,3 +1,10 @@
+<?php
+require_once('./backend/googleCredentials.php');
+$login_url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +36,10 @@
 			&rBarr; <!--arrow facing front-->
 		</button>
 	</header>
+	
 <form class="form">
 				<span class="display"></span>
+				<h4 id="google">SignUp With Google?<a href="<?= $login_url?>"> Click here</a> </h4><br>
 
 		<div class="form__field">
 			<i class="fa fa-user icon"></i>
