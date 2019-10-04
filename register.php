@@ -29,7 +29,7 @@ $db = new Database();
 
 	//Added Email Validation
 
-	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 		$data = array(
 			"error"=>1,
 			"errorMessage" => "You have entered an invalid Email ",
