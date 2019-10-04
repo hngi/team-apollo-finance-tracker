@@ -25,7 +25,7 @@ else{
 
 	//Remove all illegal characters from email
 
-	if(filter_var($email, FILTER_SANITIZE_EMAIL)){
+	if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
 		$data = array(
 		"error"=>1,
 		"errorMessage" => "You have entered an invalid Email ",
