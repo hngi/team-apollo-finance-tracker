@@ -9,9 +9,8 @@ error_reporting(0);
 require_once "Database.php";
 $db = new Database();
 
-if(isset($_POST['submit'])) {
   $email=$_POST['email'];
-	$sqlQuery = "SELECT id  FROM users WHERE email ='".$email."'";
+	$sqlQuery = "SELECT *  FROM users WHERE email ='".$email."'";
 	$result = $db->select($sqlQuery);
 	$db->close();
 	$result = $result[0];
@@ -34,5 +33,5 @@ if(isset($_POST['submit'])) {
 		);
 		echo json_encode($data,true);
   }
-}
+
 ?>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="bootstrap-validate.js"></script>
+
+    <title>Mail Support</title>
+</head>
+<body class="feed">
+    <section class="breadcrumbs-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Lets Hear Your Feedback</li>
+                </ol>
+            </nav>
+    </section>
+
+    <section>
+        <div class="page-header__pitch">
+            <h4 style="border-block: 5px;">Your feedback is important to us, as it help us improve. Lets us know what we need to improve on.<span class="badge badge-secondary"></span></h4>
+            <hr/>
+        </div>
+    </section>
+
+    <form method="post" action="" onsubmit="myFunction()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="First Name" id="myName" minlength="8">
+                </div>
+
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="Last Name" id="myLast" minlength="10">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="Email" id="maile" aria-roledescription="enter valid mail">
+                </div>
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="Phone Number" id="cell">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <select class="form-control" id="selectCountry" placeholder="Country">
+                <option>Country</option>
+                <option>Spain</option>
+                <option>Ghana</option>
+                <option>Portugal</option>
+                <option>Korea</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Input Your Complaints:</label>
+            <textarea class="form-control" id="FormMessage" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg btn-block" value="send" id="submit" onclick="alert('Thanks for your feedback')">Submit</button>
+    </form>
+</body>
+</html>

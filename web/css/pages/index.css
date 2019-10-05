@@ -164,3 +164,21 @@ transform: translate(50%, -50%);
 .form__link.is-signup-toggle {
 	margin-top: 10px;
 }
+
+/* .social-media{
+	position: absolute;
+	right: 13%;
+	color: white;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 3rem;
+} */
+.social-media{
+	width: 21%;
+	position: absolute;
+	right: 9%;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}

@@ -124,7 +124,6 @@ $sql= "SELECT * FROM expense WHERE userId = $id and `time` like '$currentDay%';"
 	}
 	
 	public function addExpense($id = NULL) {
-		if (isset($_SESSION['userId'])) {
 			$cost = $_POST['cost'];
 			$item=   $_POST['item'];
 			$details= $_POST['details'];
@@ -159,16 +158,9 @@ $sql= "INSERT INTO expense (userId,time,item,cost,details) VALUES(".$_SESSION['u
         ); 
 				echo json_encode($data, true);
 			}
-		}
+		
 
-		else {
-			$data = array(
-				"error"=>1,
-				"errorMessage" => "You are not Logged in",
-				"report" =>"accountLoggedOut"
-			); 
-			echo json_encode($data, true);
-		}
+	
 
 				$this->db->close();
 
