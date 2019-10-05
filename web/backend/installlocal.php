@@ -1,25 +1,35 @@
 <?php
-$url = "mysql://jpq841kbg8gze4bg:licm3p4nty76w6oo@mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/spzgy3k82bs0ecb6";
-$dbparts = parse_url($url);
 
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/'); // USING PRE-INSTALLED DATABASE ON SERVER.
+$hostname ="localhost";
+$username = "root";
+$password = "";
+$database="tracker";
 
 // Create connection
-$conn = new mysqli($hostname, $username, $password, $database);
+$conn = new mysqli($hostname, $username, $password);
 
 // Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 echo "Connection was successfully established!";
+$sql = "CREATE DATABASE tracker";
+if ($conn->query($sql) === true) {
+  echo "Database created successfully";
+} 
+else {
+  echo "Error creating Database: " . $conn->error;
+}
+$conn->close();
+//created database
+// Create new connection
+$conn = new mysqli($hostname, $username, $password,$database);
 
-//Create the user table
-/** I intensionally used varchar as datatype of time, 
- * so we save the return value of time() function by doing this we will be able to manipulate as needed.
-*/
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+echo "Connection was successfully established!";
 $sql = "CREATE TABLE users (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`fullname` varchar(128) NOT NULL,
@@ -52,6 +62,7 @@ if ($conn->query($sql) === true) {
 else {
     echo "Error creating table: " . $conn->error;
 }
+
 
 echo "All is set now";
 $conn->close();
