@@ -14,14 +14,63 @@ __Working branches.__ This is where initial work gets done. Any new features are
 ### Staying Updated
 When working with teams on the same codebase, sometimes others make changes that affect your work. While great care has been taken to create a modular team workflow to keep this to a minimum, merge conflicts are inevitable. It would _suck_ to finish working on a task, only to find that the codebase has evolved and you need to rework everything to conform to the new changes. This is managed in two ways.       
 __*First*__, discuss changes with the team beforehand. This is to ensure that you do not make changes that are in conflict with the work of others. GitHub has a handy feature for this - _[issues](https://help.github.com/en/articles/about-issues)_. [Create an issue](https://help.github.com/en/articles/creating-an-issue) and [label it](https://help.github.com/en/articles/applying-labels-to-issues-and-pull-requests). When you create an issue, it is automatically tracked on the team's [project board](https://help.github.com/en/articles/about-project-boards). Keep the issue open as long as work continues on the feature. All discussions regarding that feature are done under this issue. Your pull request is linked with the corresponding issue when work is completed, by adding "*closes #{number}*" to the pull request description on GitHub. Replace {number} with the appropriate issue number e.g _closes #5_.       
-__*Second*__, each team member needs to make sure that at every given time, their working directory is up-to-date with the latest changes from the remote origin (online). **You can do this easily by going into GitHub Desktop app and clicking `pull origin`. If you are using the command line, the following steps should help. `cd` into your project folder before running these commands.       
+__*Second*__, each team member needs to make sure that at every given time, their working directory is up-to-date with the latest changes from the remote origin (online). **You should be able to do this easily with GitHub Desktop once you've configured the `upstream` remote. If you are using the command line, the following steps should help. `cd` into your project folder before running these commands.       
 
-Make sure you have the _origin_ remote set up.    
-  <pre>git remote add origin git://github.com/team-wildcards/trip.ng.git</pre>    
-You will be pushing your work to 'origin' to back it up online.       
+Make sure you have both the _origin_ and _upstream_ remotes set up.    
+  <pre>git remote add origin git://github.com/{YOUR-GITHUB-USERNAME}/team-apollo-finance-tracker.git</pre>    
+  <pre>git remote add upstream git://github.com/hngi/team-apollo-finance-tracker.git</pre>      
+You will be pushing your work to 'origin' to back it up online. You will later create a pull request to the upstream repo.       
 __*The following steps must be run periodically to keep your work up-to-date. You can run these commands as often as every hour. You want to fetch any new changes as soon as possible.*__       
 Be sure to [stash](https://dev.to/neshaz/how-to-git-stash-your-work-the-correct-way-cna) 
 or commit all local changes first.  
+
+#### Pulling Upstream
+0. Open a terminal and go into the directory for the newly cloned repo. Now add the upstream remote like so:        
+    <pre>git remote add upstream git://github.com/TEAM-NAME/REPO-NAME.git</pre>    
+
+Now you're all set up.       
+__*The following steps must be run periodically to keep your work, and that of your entire sub-team up-to-date! You can run these commands as often as every hour. You want to fetch any new changes as soon as possible. Each time you want to begin working, or take a break from your work, run these first.*__
+
+1. Switch to the develop branch        
+    <pre>git checkout develop</pre>     
+2. Get all remote (online) upstream changes into your local computer.        
+    <pre>git fetch upstream</pre>     
+3. Merge changes fetched with your local develop branch. ('develop' must be the currently checked-out branch)       
+    <pre>git merge upstream/develop</pre>    
+4. Push the newly merged changes to your fork's remote (online) repo. This is configured as 'origin' by default.    
+    <pre>git push origin develop</pre>      
+
+5. Switch to your feature branch.        
+    <pre>git checkout ft__your-feature-name</pre>        
+6. Now make sure your local feature branch is up-to-date with any work your group members have done.        
+    ```
+      git fetch origin       
+      git merge origin/ft__your-feature-name
+    ```
+    *You may encounter merge conflicts here.
+    [Resolve them](https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line),
+    then come back and complete the merge. If you merge often enough, any conflicts would be trivial and very few.*
+
+7. Merge the changes on the newly merged develop branch, into your feature branch.        
+    <pre>git merge develop</pre>
+    *You may encounter merge conflicts here.
+    [Resolve them](https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line),
+    then come back and complete the merge. If you merge often enough, any conflicts would be trivial and very few.*
+
+8. Finally, push your newly merged feature branch to the remote github server so your group members can get updated as well.        
+    <pre>git push origin ft__your-feature-name</pre>      
+9. Now return to your working branch.        
+    <pre>git checkout @your-slack-username</pre>      
+
+Continue with the steps in the next section.
+
+#### Pulling Origin
+*Your group/sub-team lead has the responsibility of keeping your forked repo updated on the remote github server. All you need to do is get those changes unto your local computer.*       
+Your local repository automatically has a remote 'origin' set up when you clone. This points to the online repository you cloned unto your system. You will be pushing your work to 'origin' to back it up online.       
+__*The following steps must be run periodically to keep your work up-to-date. You can run these commands as often as every hour. You want to fetch any new changes as soon as possible. Each time you want to begin working, or take a break from your work, run these first.*__       
+Be sure to 
+[stash](https://dev.to/neshaz/how-to-git-stash-your-work-the-correct-way-cna) 
+or commit all changes first.  
 
 1. Switch to your subteam/topic branch        
     <pre>git checkout frontend</pre>          
@@ -255,4 +304,23 @@ We are using JSON to return data to the frontend. Check the example below.
 	"action": "register"
 }
 ```
+### Adding Dashboard function
+ adding new function relating to dashboard can now/should be done in the dashboard.php  class as a method if  i want to commit a code that get all Expense i will declare a public method in the dashboard.php as follows:
+...
+```php
 
+   public function getAllExpense(id =NULL){
+//do some operation here
+   } 
+
+```
+...
+   and also if you need to get maybe an id then the parameter of your function will be the id .for example a link like this localhost/backend/route.php/dashboard/getExpense/45 will call the getExpense funtion in the class dashboard with 45 as the parameter the code will look like:
+...
+   ```php
+ public function getExpense($id){//do some operation here
+
+  getExpenseById($id);//$Id will equal to anything in the url last section incase of the above 45
+   } 
+   ```
+  ...
