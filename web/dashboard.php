@@ -1,56 +1,46 @@
+<?php
+//require_once('./backend/googleCredentials.php');
+require_once('./backend/googleAuth.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<title>Dashboard - Finance Tracker</title>
-
+	
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		
+  <link rel="stylesheet" href="css/pages/dashboard.css">
+	<link 
+		rel="stylesheet" type="text/css" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+	>
 
-	<link rel="stylesheet" href="css/pages/dashboard.css">
-	<link rel="stylesheet" type="text/css"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
-	<script>
-		const normalizeViewportHeight = () => {
-			let viewport = document.querySelector('meta[name="viewport"]');
-			let newViewport = viewport;
-			defaultValue = "width=device-width, height=device-height, initial-scale=1.0";
-			normalizedValue = "width=device-width, height=500, initial-scale=1.0"
-			if (document.documentElement.clientHeight < 500) {
-				newViewport.setAttribute("content", normalizedValue);
-				document.head.replaceChild(newViewport, viewport);
-			}
-			else if (document.documentElement.clientHeight > 500) {
-				newViewport.setAttribute("content", defaultValue);
-				document.head.replaceChild(newViewport, viewport);
-			}
+<script>
+	const normalizeViewportHeight = ()=> {
+		let viewport = document.querySelector('meta[name="viewport"]');
+		let newViewport = viewport;
+		defaultValue = "width=device-width, height=device-height, initial-scale=1.0";
+		normalizedValue = "width=device-width, height=500, initial-scale=1.0"
+		if (document.documentElement.clientHeight < 500) {
+			newViewport.setAttribute("content", normalizedValue);
+			document.head.replaceChild(newViewport, viewport);	
 		}
-		window.onload = normalizeViewportHeight;
-		window.onresize = normalizeViewportHeight;
-	</script>
+		else if (document.documentElement.clientHeight > 500) {
+			newViewport.setAttribute("content", defaultValue);
+			document.head.replaceChild(newViewport, viewport);
+		}
+	}
+	window.onload = normalizeViewportHeight;
+	window.onresize = normalizeViewportHeight;
+</script>
 
 </head>
 
 <body>
-	<div class="social-media">
-		<span>Get In Touch</span>
-		<a href="https://web.facebook.com/apollotracker">
-			<img src="images/facebook-brands2.svg" alt=""
-				height="32px" width="32px">
-		</a>
-		<a href="https://twitter.com/apollo_tracker">
-			<img src="images/twitter-brands.svg" alt=""
-				height="32px" width="32px">
-		</a>
-		<a href="https://www.instagram.com/apollotracker/">
-			<img src="images/instagram-brands.svg" alt=""
-				height="32px" width="32px">
-		</a>
-	</div>
-
-
 	<div class="frame">
 		<header class="navigation-area">
 			<h3 class="app-name">Apollo Probe</h3>
@@ -61,7 +51,7 @@
 					<button class="tab is-summary is-current">
 						Summary
 					</button>
-
+					
 					<button class="tab is-history">
 						History
 					</button>
@@ -69,7 +59,7 @@
 						Logout
 					</button>
 				</div>
-
+				
 				<select name="period" class="period">
 					<option value="day">Today</option>
 					<option value="Month">This Month</option>
@@ -91,7 +81,7 @@
 					<tr class="summary-table__row">
 						<td class="summary-table__label">Total Expenditure</td>
 						<td class="summary-table__value">
-							<span data-total>N/A</span>
+                         <span data-total>N/A</span>
 						</td>
 					</tr>
 					<tr class="summary-table__row is-verdict is-deficit">
@@ -100,7 +90,7 @@
 						</td>
 						<td class="summary-table__value is-verdict">
 							<span data-deficit>N/A</span>
-
+							
 						</td>
 					</tr>
 				</table>
@@ -109,29 +99,28 @@
 
 			<section class="details is-history is-hidden">
 				<ul class="history-list" style="max-height: 250px;overflow-y: auto;">
-
-					<center><img class='spin-this' style='max-width:30px;' src='./images/loader.png' />
-					</center>
-
+					
+					<center><img class='spin-this' style='max-width:30px;' src='./images/loader.png'/>
+</center>
+					
 				</ul>
-
+				
 				<button onclick="window.location.assign('./add_expense.html');" class="button">+ Expense</button>
 			</section>
 
 			<hr class="vertical-divider">
 
 			<p class="comment">
-				<i class="comment__emoji">&#128530;</i>
-				<!--happy => &#128515;-->
+				<i class="comment__emoji">&#128530;</i><!--happy => &#128515;-->
 				<span> Come, you think you are Bill Gate right? Continue.</span>
 			</p>
 		</main>
 		<div class="center__button"></div>
 	</div>
 
+
 	<script src="js/dashboard.js"></script>
-	<script src="js/logout.js"></script>
+		<script src="js/logout.js"></script>
 
 </body>
-
 </html>
