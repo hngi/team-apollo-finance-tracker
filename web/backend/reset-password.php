@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
 	$db = new Database();
 
 	$email = $_SESSION['email'];
-	$password = md5($_POST['password']);
+	$password = md5($_POST['newpassword']);
 	$sqlQuery = "UPDATE users SET password ='".$password."'  WHERE  email ='".$email."' ";
 
   if($db->query($sqlQuery)) {

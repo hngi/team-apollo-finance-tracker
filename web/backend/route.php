@@ -14,10 +14,10 @@ if (array_key_exists($indexOfIndexPHP + 1, $url_array) && $url_array[$indexOfInd
 			break;
 		case 'signin':
 			require_once "login.php";
-			break;
+			break
 		case 'login':
 			require_once "login.php";
-			break;
+			break
 		case 'dashboard':
 			require_once "dashboard.php";
 			$dashboard = new Dashboard;

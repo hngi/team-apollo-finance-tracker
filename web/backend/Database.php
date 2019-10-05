@@ -14,7 +14,6 @@ class Database {
 		$password = $dbparts['pass'];
 		$database = ltrim($dbparts['path'],'/');
 
-
 		// Create connection
 		$this->conn = new mysqli($hostname, $username, $password, $database);
 
@@ -22,7 +21,7 @@ class Database {
 		if ($this->conn->connect_error) {
 			die("Connection failed: " . $this->conn->connect_error);
 		}
-		//echo "Connection was successfully established!";
+		echo "Connection was successfully established!";
   }
 	
 	public function query($sql) {

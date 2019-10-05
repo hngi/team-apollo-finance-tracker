@@ -6,7 +6,7 @@ else if its 0 that means no error occured and operation is successfull so the su
 gotten from successMessage
 
 
-## link_to_route/route.php/dashboard/addexpense POST Request
+## link_to_route/route.php/dashboard/addexpense/{id} POST Request
 <br>
 
 #### POST VARIABLE : cost,item,details
