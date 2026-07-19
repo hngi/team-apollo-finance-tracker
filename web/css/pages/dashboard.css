@@ -375,3 +375,7 @@ display: none;
 #668AD2
 #5474B4
 #415B8B*/
+
+.history-item__id {
+	display:block;
+}
